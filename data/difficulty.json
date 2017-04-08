@@ -1,0 +1,43 @@
+{
+    "page": "difficulty",
+    "templates": [
+        
+        {
+            "type": "description",
+            "value": "Change the difficulty of Retro Terminal"
+        },
+        {
+            "type": "list",
+            "value": [
+                {
+                    "name": "easy",
+                    "label": "Easy",
+                    "type": "button",
+                    "action": "setDifficultyEasy",
+                    "feedback": ""
+                },
+                {
+                    "name": "medium",
+                    "label": "Medium",
+                    "type": "button",
+                    "action": "setDifficultyMedium",
+                    "feedback": ""
+                },
+                {
+                    "name": "hard",
+                    "label": "Hard",
+                    "type": "button",
+                    "action": "setDifficultyHard",
+                    "feedback": ""
+                },
+                {
+                    "name": "back",
+                    "label": "Back",
+                    "type": "a",
+                    "action": "#settings",
+                    "feedback": ""
+                }
+            ]
+        }
+    ]
+}

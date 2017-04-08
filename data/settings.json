@@ -1,0 +1,36 @@
+{
+    "page": "settings",
+    "templates": [
+        
+        {
+            "type": "description",
+            "value": "Change the settings of Retro Terminal"
+        },
+        {
+            "type": "list",
+            "value": [
+                {
+                    "name": "difficulty",
+                    "label": "Difficulty",
+                    "type": "a",
+                    "action": "#difficulty",
+                    "feedback": ""
+                },
+                {
+                    "name": "color",
+                    "label": "Color",
+                    "type": "a",
+                    "action": "#color",
+                    "feedback": ""
+                },
+                {
+                    "name": "back",
+                    "label": "Back",
+                    "type": "a",
+                    "action": "#home",
+                    "feedback": ""
+                }
+            ]
+        }
+    ]
+}

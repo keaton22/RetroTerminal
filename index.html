@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Retro Terminal</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body onhashchange="hashChange()">
+    <form id="actions-form" action="scripts/actions.php" method="GET" style="display: none;"></form>
+    <div id="wrapper">
+        <header id="header">
+            <h1 class="os">RobCo Industries Unified Operating System</h1>
+            <h2 class="copyright">Copyright 2075-2077 RobCo Industries</h2>
+            <p class="server">Server 22</p>
+        </header>
+        <main id="main">
+        
+        </main>
+        <footer id="footer">
+            <span class="feedback"></span>
+        </footer>
+    </div>
+    <script src="scripts/controller.js"></script>
+    <script src="scripts/router.js"></script>
+    <script src="scripts/actions.js"></script>
+    <script src="scripts/interface.js"></script>
+    <script>
+        hashChange();   // set page to #home by default   
+        var color = localStorage.getItem("color") ? localStorage.getItem("color") : "#1aff80";
+        setColor(color);
+    </script>
+</body>
+</html>

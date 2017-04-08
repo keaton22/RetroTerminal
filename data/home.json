@@ -1,0 +1,50 @@
+{
+    "page": "home",
+    "templates": [
+        
+        {
+            "type": "description",
+            "value": "You've hacked Retro Terminal! Explore the options below to learn more."
+        },
+        {
+            "type": "list",
+            "value": [
+                {
+                    "name": "about",
+                    "label": "About Retro Terminal",
+                    "type": "a",
+                    "action": "#about",
+                    "feedback": ""
+                },
+                {
+                    "name": "fallout",
+                    "label": "Play Fallout",
+                    "type": "button",
+                    "action": "playFallout",
+                    "feedback": ""
+                },
+                {
+                    "name": "settings",
+                    "label": "Settings",
+                    "type": "a",
+                    "action": "#settings",
+                    "feedback": ""
+                },
+                {
+                    "name": "reset",
+                    "label": "Reset Minigame",
+                    "type": "button",
+                    "action": "resetMinigame",
+                    "feedback": ""
+                },
+                {
+                    "name": "quit",
+                    "label": "Quit",
+                    "type": "a",
+                    "action": "#quit",
+                    "feedback": ""
+                }
+            ]
+        }
+    ]
+}

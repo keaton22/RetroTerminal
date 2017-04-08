@@ -1,0 +1,7 @@
+NOTES:
+
+- click link => go to new page => see feedback on new page
+- click button => do action (reload current page) => see feedback on current page
+- feedback:
+	- to indicate completed actions, use ...
+	- to indicate information, DON'T use ...

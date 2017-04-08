@@ -1,0 +1,50 @@
+{
+    "page": "quit",
+    "templates": [
+        
+        {
+            "type": "description",
+            "value": "Change the color of Retro Terminal"
+        },
+        {
+            "type": "list",
+            "value": [
+                {
+                    "name": "desktop",
+                    "label": "Exit to Desktop",
+                    "type": "button",
+                    "action": "exitToDesktop",
+                    "feedback": ""
+                },
+                {
+                    "name": "logout",
+                    "label": "Log Out",
+                    "type": "button",
+                    "action": "logOut",
+                    "feedback": ""
+                },
+                {
+                    "name": "reboot",
+                    "label": "Reboot",
+                    "type": "button",
+                    "action": "reboot",
+                    "feedback": ""
+                },
+                {
+                    "name": "shutdown",
+                    "label": "Shutdown",
+                    "type": "button",
+                    "action": "shutdown",
+                    "feedback": ""
+                },
+                {
+                    "name": "back",
+                    "label": "Back",
+                    "type": "a",
+                    "action": "#home",
+                    "feedback": ""
+                }
+            ]
+        }
+    ]
+}

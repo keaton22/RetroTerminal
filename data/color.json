@@ -1,0 +1,50 @@
+{
+    "page": "color",
+    "templates": [
+        
+        {
+            "type": "description",
+            "value": "Change the color of Retro Terminal"
+        },
+        {
+            "type": "list",
+            "value": [
+                {
+                    "name": "green",
+                    "label": "Green",
+                    "type": "button",
+                    "action": "setColorGreen",
+                    "feedback": ""
+                },
+                {
+                    "name": "blue",
+                    "label": "Blue",
+                    "type": "button",
+                    "action": "setColorBlue",
+                    "feedback": ""
+                },
+                {
+                    "name": "amber",
+                    "label": "Amber",
+                    "type": "button",
+                    "action": "setColorAmber",
+                    "feedback": ""
+                },
+                {
+                    "name": "white",
+                    "label": "White",
+                    "type": "button",
+                    "action": "setColorWhite",
+                    "feedback": ""
+                },
+                {
+                    "name": "back",
+                    "label": "Back",
+                    "type": "a",
+                    "action": "#settings",
+                    "feedback": ""
+                }
+            ]
+        }
+    ]
+}
