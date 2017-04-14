@@ -27,16 +27,20 @@ function submitActionsForm(action, e) {
                     alert(response);
                     break;
                 case "setColorGreen":
-                    setColor('#1aff80');
+                    setColor('green');
+                    //setColor('#1aff80');
                     break;
                 case "setColorBlue":
-                    setColor('#2ecfff');
+                    setColor('blue');
+                    //setColor('#2ecfff');
                     break;
                 case "setColorAmber":
-                    setColor('#ffb642');
+                    setColor('amber');
+                    //setColor('#ffb642');
                     break;
                 case "setColorWhite":
-                    setColor('#c0ffff');
+                    setColor('white');
+                    //setColor('#c0ffff');
                     break;
             }
         });    
@@ -44,6 +48,8 @@ function submitActionsForm(action, e) {
 }
                 
 function setColor(color) {
+    document.querySelector("body").className = color;
     localStorage.setItem("color", color);
-    document.documentElement.style.setProperty('--color', color);
+    
+    //document.documentElement.style.setProperty('--color', color);
 }

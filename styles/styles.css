@@ -1,29 +1,83 @@
+/* 
+
+colors:
+- green: #1aff80
+- blue:  #2ecfff
+- amber: #ffb642
+- white: #c0ffff
+
+*/
+
 :root {
 /*    --color: aqua;*/
 }
 
 html {
     height: 100%;
+    overflow: hidden;
 }
 
 body {
     height: 100%;
-    color: var(--color);
-    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%), var(--color);
+/*    color: var(--color);*/
+/*    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%), var(--color);*/
+}
+
+.green {
+    color: #1aff80;
+    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%), #1aff80;
+}
+.blue {
+    color: #2ecfff;
+    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%), #2ecfff;
+}
+.amber {
+    color: #ffb642;
+    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%), #ffb642;
+}
+.white {
+    color: #c0ffff;
+    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%), #c0ffff;
 }
 
 a {
-    color: var(--color);
+/*    color: var(--color);*/
     text-decoration: none;
+}
+
+.green a {
+    color: #1aff80;
+}
+.blue a {
+    color: #2ecfff;
+}
+.amber a {
+    color: #ffb642;
+}
+.white a {
+    color: #c0ffff;
 }
 
 button {
     background: none;
     border: none;
-    color: var(--color);
+/*    color: var(--color);*/
     padding: 0;
     cursor: pointer;
     text-align: left;
+}
+
+.green button {
+    color: #1aff80;
+}
+.blue button {
+    color: #2ecfff;
+}
+.amber button {
+    color: #ffb642;
+}
+.white button {
+    color: #c0ffff;
 }
 
 button:focus, a:focus {
@@ -41,8 +95,21 @@ button:focus, a:focus {
 
 .description {
     display: inline-block;
-    border-bottom: 1px solid var(--color);
+/*    border-bottom: 1px solid var(--color);*/
     margin: 0;
+}
+
+.green .description {
+    border-bottom: 1px solid #1aff80;
+}
+.blue .description {
+    border-bottom: 1px solid #2ecfff;
+}
+.amber .description {
+    border-bottom: 1px solid #ffb642;
+}
+.white .description {
+    border-bottom: 1px solid #c0ffff;
 }
 
 .list {
@@ -60,6 +127,19 @@ button:focus, a:focus {
 .list .item.selected * {
     display: block;
     width: 100%;
-    background: var(--color);
+/*    background: var(--color);*/
     color: rgba(0,0,0,.8);
+}
+
+.green .list .item.selected * {
+    background: #1aff80;
+}
+.blue .list .item.selected * {
+    background: #2ecfff;
+}
+.amber .list .item.selected * {
+    background: #ffb642;
+}
+.white .list .item.selected * {
+    background: #c0ffff;
 }
