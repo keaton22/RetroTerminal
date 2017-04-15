@@ -6,7 +6,7 @@
             echo "Fallout Coming Soon";
             break;
         case "exitToDesktop":
-            exec('killall epiphany-browser');
+            exec('killall epiphany');
             echo('Exiting Retro Terminal...');
             break;
         case "logOut":
