@@ -43,6 +43,7 @@ body {
 a {
 /*    color: var(--color);*/
     text-decoration: none;
+    font-size: 16px;
 }
 
 .green a {
@@ -59,6 +60,7 @@ a {
 }
 
 button {
+    font-size: 16px;
     background: none;
     border: none;
 /*    color: var(--color);*/
@@ -94,6 +96,7 @@ button:focus, a:focus {
 }
 
 .description {
+    font-size: 16px;
     display: inline-block;
 /*    border-bottom: 1px solid var(--color);*/
     margin: 0;
@@ -142,4 +145,8 @@ button:focus, a:focus {
 }
 .white .list .item.selected * {
     background: #c0ffff;
+}
+
+.feedback {
+    font-size: 16px;
 }
