@@ -30,7 +30,7 @@
     <script src="scripts/interface.js"></script>
     <script>
         hashChange();   // set page to #home by default   
-        var color = localStorage.getItem("color") ? localStorage.getItem("color") : "green";
+        var color = localStorage.getItem("color") ? localStorage.getItem("color") : localStorage.setItem("color", "green");
         setColor(color);
     </script>
 </body>
