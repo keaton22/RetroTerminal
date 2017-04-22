@@ -4,7 +4,7 @@
         
         {
             "type": "description",
-            "value": "Change the color of Retro Terminal"
+            "value": "Choose an action"
         },
         {
             "type": "list",
