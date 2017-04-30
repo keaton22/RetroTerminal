@@ -4,27 +4,26 @@ function submitActionsForm(action, e) {
     
     if (e.which == 32 || e.which == 13 || e.which == 1) {   // if enter or spacebar is pressed (or by pressing either a mouse click is sumulated)
         ajax("scripts/actions.php?action=" + action, "GET", function (response) {
-            var response = response.responseText;
 
             // handle actions
             switch (action) {
                 case "playFallout":
-                    alert(response);
+                    alert(response.responseText);
                     break;
                 case "resetMinigame":
                     alert("Resetting minigame...");
                     break;
                 case "exitToDesktop":
-                    alert(response);
+                    alert(response.responseText);
                     break;
                 case "logOut":
-                    alert(response);
+                    alert(response.responseText);
                     break;
                 case "reboot":
-                    alert(response);
+                    alert(response.responseText);
                     break;
                 case "shutdown":
-                    alert(response);
+                    alert(response.responseText);
                     break;
                 case "setColorGreen":
                     setColor('green');
