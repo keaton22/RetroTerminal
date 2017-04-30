@@ -8,6 +8,13 @@ colors:
 
 */
 
+@font-face {
+    font-family: 'fsex300';
+    src: url('../fonts/fsex300.woff2') format('woff2'), url('../fonts/fsex300.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /*:root {
     --color: aqua;
 }*/
@@ -15,6 +22,7 @@ colors:
 html {
     height: 100%;
     overflow: hidden;
+    font: 16px fsex300;
 }
 
 body {
@@ -60,7 +68,7 @@ a {
 }
 
 button {
-    font-size: 16px;
+    font: 16px fsex300;
     background: none;
     border: none;
 /*    color: var(--color);*/
