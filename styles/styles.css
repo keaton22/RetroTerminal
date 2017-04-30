@@ -29,23 +29,24 @@ body {
     height: 100%;
 /*    color: var(--color);*/
 /*    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%), var(--color);*/
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%);
 }
 
 .green {
     color: #1aff80;
-    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%), #1aff80;
+    background-color: #1aff80;
 }
 .blue {
     color: #2ecfff;
-    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%), #2ecfff;
+    background-color: #2ecfff;
 }
 .amber {
     color: #ffb642;
-    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%), #ffb642;
+    background-color: #ffb642;
 }
 .white {
     color: #c0ffff;
-    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%), #c0ffff;
+    background-color: #c0ffff;
 }
 
 a {
