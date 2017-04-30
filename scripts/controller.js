@@ -76,7 +76,7 @@ function writeList(template, meta) {
     }
     
     document.querySelector(".list .item").className += " selected";
-    document.querySelector(".list .item").focus();
+    document.querySelector(".list .item").firstChild.focus();
 }
 
 function writeMessage(template, meta) {
