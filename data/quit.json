@@ -14,28 +14,28 @@
                     "label": "Exit to Desktop",
                     "type": "button",
                     "action": "exitToDesktop",
-                    "feedback": ""
+                    "feedback": "Exiting to desktop..."
                 },
                 {
                     "name": "logout",
                     "label": "Log Out",
                     "type": "button",
                     "action": "logOut",
-                    "feedback": ""
+                    "feedback": "Logging out..."
                 },
                 {
                     "name": "reboot",
                     "label": "Reboot",
                     "type": "button",
                     "action": "reboot",
-                    "feedback": ""
+                    "feedback": "Rebooting..."
                 },
                 {
                     "name": "shutdown",
                     "label": "Shutdown",
                     "type": "button",
                     "action": "shutdown",
-                    "feedback": ""
+                    "feedback": "Shutting down..."
                 },
                 {
                     "name": "back",
