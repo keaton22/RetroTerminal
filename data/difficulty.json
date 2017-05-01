@@ -14,21 +14,21 @@
                     "label": "Easy",
                     "type": "button",
                     "action": "setDifficultyEasy",
-                    "feedback": ""
+                    "feedback": "Difficulty set to easy..."
                 },
                 {
                     "name": "medium",
                     "label": "Medium",
                     "type": "button",
                     "action": "setDifficultyMedium",
-                    "feedback": ""
+                    "feedback": "Difficulty set to medium..."
                 },
                 {
                     "name": "hard",
                     "label": "Hard",
                     "type": "button",
                     "action": "setDifficultyHard",
-                    "feedback": ""
+                    "feedback": "Difficulty set to hard..."
                 },
                 {
                     "name": "back",
