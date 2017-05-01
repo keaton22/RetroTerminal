@@ -66,6 +66,8 @@ function writeList(template, meta) {
                 elem.setAttribute("for", "actions-form");
                 elem.setAttribute("onclick", 'submitActionsForm("' + meta.value[i].action + '");');
                 elem.setAttribute("onkeydown", 'submitActionsForm("' + meta.value[i].action + ', ' + "event" + '");');
+                elem.setAttribute("data-action", meta.value[i].action);
+                elem.setAttribute("data-feedback", meta.value[i].feedback);
                 break;
         }        
         
