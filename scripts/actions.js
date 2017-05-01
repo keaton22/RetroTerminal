@@ -1,6 +1,5 @@
 function submitActionsForm(action, e) {
     e = e || window.event;
-    console.log(e.which);
     
     if (e.which == 32 || e.which == 13 || e.which == 1) {   // if enter or spacebar is pressed (or by pressing either a mouse click is sumulated)
         ajax("scripts/actions.php?action=" + action, "GET", function (response) {
