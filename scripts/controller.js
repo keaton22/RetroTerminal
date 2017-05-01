@@ -63,8 +63,8 @@ function writeList(template, meta) {
                 break;
             case "button":
                 elem.setAttribute("for", "actions-form");
-                elem.setAttribute("onclick", 'submitActionsForm("' + meta.value[i].action + '");');
-                elem.setAttribute("onkeydown", 'submitActionsForm("' + meta.value[i].action + ', ' + "event" + '");');
+                elem.setAttribute("onclick", 'submitActionsForm(this, event)');
+                elem.setAttribute("onkeydown", 'submitActionsForm(this, event)');
                 elem.setAttribute("data-action", meta.value[i].action);
                 elem.setAttribute("data-feedback", meta.value[i].feedback);
                 break;

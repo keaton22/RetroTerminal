@@ -1,5 +1,8 @@
-function submitActionsForm(action, e) {
+function submitActionsForm(element, e) {
     e = e || window.event;
+    //console.log(e.which);
+    var action = element.getAttribute("data-action");
+    var feedback = element.getAttribute("data-feedback");
     
     if (e.which == 32 || e.which == 13 || e.which == 1) {   // if enter or spacebar is pressed (or by pressing either a mouse click is sumulated)
         ajax("scripts/actions.php?action=" + action, "GET", function (response) {
@@ -7,54 +10,54 @@ function submitActionsForm(action, e) {
             // handle actions
             switch (action) {
                 case "playFallout":
-                    alert(response.responseText);
+                    setFeedback(feedback);
                     break;
                 case "resetMinigame":
-                    alert("Resetting minigame...");
+                    setFeedback(feedback);
                     break;
                 case "exitToDesktop":
-                    alert(response.responseText);
+                    setFeedback(feedback);
                     break;
                 case "logOut":
-                    alert(response.responseText);
+                    setFeedback(feedback);
                     break;
                 case "reboot":
-                    alert(response.responseText);
+                    setFeedback(feedback);
                     break;
                 case "shutdown":
-                    alert(response.responseText);
+                    setFeedback(feedback);
                     break;
                 case "setColorGreen":
                     setColor('green');
-                    setFeedback("Color changed to green...", 2000);
+                    setFeedback(feedback);
                     //setColor('#1aff80');
                     break;
                 case "setColorBlue":
                     setColor('blue');
-                    setFeedback("Color changed to blue...", 2000);
+                    setFeedback(feedback);
                     //setColor('#2ecfff');
                     break;
                 case "setColorAmber":
                     setColor('amber');
-                    setFeedback("Color changed to amber...", 2000);
+                    setFeedback(feedback);
                     //setColor('#ffb642');
                     break;
                 case "setColorWhite":
                     setColor('white');
-                    setFeedback("Color changed to white...", 2000);
+                    setFeedback(feedback);
                     //setColor('#c0ffff');
                     break;
                 case "setDifficultyEasy":
                     setDifficulty('easy');
-                    setFeedback("Difficulty changed to easy...", 2000);
+                    setFeedback(feedback);
                     break;
                 case "setDifficultyMedium":
                     setDifficulty('medium');
-                    setFeedback("Difficulty changed to medium...", 2000);
+                    setFeedback(feedback);
                     break;
                 case "setDifficultyHard":
                     setDifficulty('hard');
-                    setFeedback("Difficulty changed to hard...", 2000);
+                    setFeedback(feedback);
                     break;
             }
         });    
@@ -73,8 +76,11 @@ function setDifficulty(difficulty) {
     console.log('Color difficulty to ' + difficulty)
 }
 
-function setFeedback(status, timeout) {
+function setFeedback(status) {
     document.querySelector(".feedback .status").innerHTML = status;
+    window.setTimeout(function () {
+        clearFeedback();
+    }, 5000);
 }
 
 function clearFeedback() {
