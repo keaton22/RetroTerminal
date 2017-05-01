@@ -21,7 +21,7 @@
                     "label": "Play Fallout",
                     "type": "button",
                     "action": "playFallout",
-                    "feedback": ""
+                    "feedback": "Fallout coming soon"
                 },
                 {
                     "name": "settings",
@@ -35,7 +35,7 @@
                     "label": "Reset Minigame",
                     "type": "button",
                     "action": "resetMinigame",
-                    "feedback": ""
+                    "feedback": "Resetting Minigame..."
                 },
                 {
                     "name": "quit",
