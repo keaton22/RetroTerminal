@@ -5,16 +5,16 @@
         case "playFallout":
             break;
         case "exitToDesktop":
-            exec('killall epiphany');
+            exec('-u chip killall epiphany');
             break;
         case "logOut":
-            exec('logout');
+            exec('exit');
             break;
         case "reboot":
-            exec('sudo reboot');
+            exec('sudo shutdown -r now');
             break;
         case "shutdown":
-            exec('sudo shutdown');
+            exec('sudo shutdown -h now');
             break;
     }
 ?>
