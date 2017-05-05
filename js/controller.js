@@ -24,7 +24,7 @@ function dataHandler(response) {
         var value = data.templates[i].value;
         
         // run "ajax" function to get correct template, replaces switch statement
-        ajax("templates/_" + type +".html", "GET", templateHandler, {"type": type, "value": value});
+        ajax("html/_" + type +".html", "GET", templateHandler, {"type": type, "value": value});
         console.log("page has a " + type);
     }
 }

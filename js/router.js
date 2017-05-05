@@ -11,7 +11,7 @@ function cleanPage() {
 function hashChange() {
     var hash = location.hash.slice(1) ? location.hash.slice(1) : "home";
     cleanPage();
-    ajax("data/" + hash + ".json", "GET", dataHandler);
+    ajax("json/" + hash + ".json", "GET", dataHandler);
     console.log("* handled hash change *");
 }
 

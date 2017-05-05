@@ -5,7 +5,7 @@ function submitActionsForm(element, e) {
     var feedback = element.getAttribute("data-feedback");
     
     if (e.which == 32 || e.which == 13 || e.which == 1) {   // if enter or spacebar is pressed (or by pressing either a mouse click is sumulated)
-        ajax("scripts/actions.php?action=" + action, "GET", function (response) {
+        ajax("php/actions.php?action=" + action, "GET", function (response) {
 
             // handle actions
             switch (action) {
