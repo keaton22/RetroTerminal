@@ -1,6 +1,6 @@
 function submitActionsForm(element, e) {
     e = e || window.event;
-    //console.log(e.which);
+    console.info("Key pressed: " + e.which);
     var action = element.getAttribute("data-action");
     var feedback = element.getAttribute("data-feedback");
     
