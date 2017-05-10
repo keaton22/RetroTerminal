@@ -66,7 +66,7 @@ function submitActionsForm(element, e) {
 function setColor(color) {
     document.querySelector("body").className = color;
     localStorage.setItem("color", color);
-    console.log('Color set to ' + color)
+    console.log('color set to ' + color)
     //document.documentElement.style.setProperty('--color', color);
 }
 

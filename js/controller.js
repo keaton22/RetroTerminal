@@ -17,7 +17,7 @@ function ajax(file, method, callback, meta) {
 // handle data
 function dataHandler(response) {
     data = JSON.parse(response.responseText);
-    console.log("got data from " + data.page + ".json")
+    console.groupCollapsed("got data from " + data.page + ".json")
     
     for(i = 0; i < data.templates.length; i++) {
         var type = data.templates[i].type;
@@ -27,16 +27,19 @@ function dataHandler(response) {
         ajax("html/_" + type +".html", "GET", templateHandler, {"type": type, "value": value});
         console.log("page has a " + type);
     }
+    //console.groupEnd();
 }
 
 // handle template
 function templateHandler(response, meta) {
     template = response.responseText;
-    console.log("got template _" + meta.type + ".html");
+    console.groupCollapsed("got template _" + meta.type + ".html");
     
     // run correct "write" function, replaces switch statement
     eval("write" + meta.type.charAt(0).toUpperCase() + meta.type.slice(1) + "(template, meta);");
     console.log("injected _" + meta.type + ".html into page");
+    console.groupEnd();
+    
 }
 
 // write description
