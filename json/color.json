@@ -12,6 +12,7 @@
                 {
                     "name": "green",
                     "label": "Green",
+                    "value": "#1aff80",
                     "type": "button",
                     "action": "setColorGreen",
                     "feedback": "Color set to green..."
@@ -19,6 +20,7 @@
                 {
                     "name": "blue",
                     "label": "Blue",
+                    "value": "#2ecfff",
                     "type": "button",
                     "action": "setColorBlue",
                     "feedback": "Color set to blue..."
@@ -26,6 +28,7 @@
                 {
                     "name": "amber",
                     "label": "Amber",
+                    "value": "#ffb642",
                     "type": "button",
                     "action": "setColorAmber",
                     "feedback": "Color set to amber..."
@@ -33,6 +36,7 @@
                 {
                     "name": "white",
                     "label": "White",
+                    "value": "#c0ffff",
                     "type": "button",
                     "action": "setColorWhite",
                     "feedback": "Color set to white..."
