@@ -27,68 +27,26 @@ html {
 
 body {
     height: 100%;
-/*    color: var(--color);*/
-/*    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%), var(--color);*/
     background-image: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%);
-}
-
-.green {
+    
     color: #1aff80;
     background-color: #1aff80;
 }
-.blue {
-    color: #2ecfff;
-    background-color: #2ecfff;
-}
-.amber {
-    color: #ffb642;
-    background-color: #ffb642;
-}
-.white {
-    color: #c0ffff;
-    background-color: #c0ffff;
-}
 
 a {
-/*    color: var(--color);*/
     text-decoration: none;
     font-size: 16px;
-}
-
-.green a {
-    color: #1aff80;
-}
-.blue a {
-    color: #2ecfff;
-}
-.amber a {
-    color: #ffb642;
-}
-.white a {
-    color: #c0ffff;
+    color: inherit
 }
 
 button {
     font: 16px fsex300;
     background: none;
     border: none;
-/*    color: var(--color);*/
     padding: 0;
     cursor: pointer;
     text-align: left;
-}
-
-.green button {
-    color: #1aff80;
-}
-.blue button {
-    color: #2ecfff;
-}
-.amber button {
-    color: #ffb642;
-}
-.white button {
-    color: #c0ffff;
+    color: inherit;
 }
 
 button:focus, a:focus {
@@ -107,21 +65,11 @@ button:focus, a:focus {
 .description {
     font-size: 16px;
     display: inline-block;
-/*    border-bottom: 1px solid var(--color);*/
     margin: 0;
-}
-
-.green .description {
-    border-bottom: 1px solid #1aff80;
-}
-.blue .description {
-    border-bottom: 1px solid #2ecfff;
-}
-.amber .description {
-    border-bottom: 1px solid #ffb642;
-}
-.white .description {
-    border-bottom: 1px solid #c0ffff;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    
+    border-bottom-color: #1aff80;
 }
 
 .list {
@@ -134,26 +82,14 @@ button:focus, a:focus {
     width: 100%;
     height: 16px;        /* prevents applied :focus from squishing the automatic height */
     margin: 2px 0;
+    color: inherit;
 }
 
 .list .item.selected * {
     display: block;
     width: 100%;
-/*    background: var(--color);*/
     color: rgba(0,0,0,.8);
-}
-
-.green .list .item.selected * {
-    background: #1aff80;
-}
-.blue .list .item.selected * {
-    background: #2ecfff;
-}
-.amber .list .item.selected * {
-    background: #ffb642;
-}
-.white .list .item.selected * {
-    background: #c0ffff;
+    background-color: inherit;
 }
 
 .feedback {

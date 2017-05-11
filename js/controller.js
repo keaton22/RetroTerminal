@@ -1,6 +1,8 @@
 var data;
 var template;
 var meta = new Object();
+var requiredTemplates;
+var templatesLoaded = 0;
 
 // make an ajax call
 function ajax(file, method, callback, meta) {
@@ -17,7 +19,7 @@ function ajax(file, method, callback, meta) {
 // handle data
 function dataHandler(response) {
     data = JSON.parse(response.responseText);
-    console.groupCollapsed("got data from " + data.page + ".json")
+    console.groupCollapsed("got data from " + data.page + ".json");
     
     for(i = 0; i < data.templates.length; i++) {
         var type = data.templates[i].type;
@@ -27,7 +29,7 @@ function dataHandler(response) {
         ajax("html/_" + type +".html", "GET", templateHandler, {"type": type, "value": value});
         console.log("page has a " + type);
     }
-    //console.groupEnd();
+    requiredTemplates = data.templates.length;
 }
 
 // handle template
@@ -38,8 +40,8 @@ function templateHandler(response, meta) {
     // run correct "write" function, replaces switch statement
     eval("write" + meta.type.charAt(0).toUpperCase() + meta.type.slice(1) + "(template, meta);");
     console.log("injected _" + meta.type + ".html into page");
+    templateLoaded();
     console.groupEnd();
-    
 }
 
 // write description
@@ -87,4 +89,15 @@ function writeMessage(template, meta) {
     document.querySelector("#main").innerHTML += template;
     document.querySelector("." + meta.type).innerHTML = meta.value;
     console.log("injected data into " + meta.type);
+}
+
+function templateLoaded() {
+    templatesLoaded++;
+    
+    if(templatesLoaded === requiredTemplates) {
+        console.groupEnd();
+        console.info('all templates loaded successfully!');
+        console.groupEnd();
+        pageLoaded();
+    }
 }

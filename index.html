@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Retro Terminal</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style></style>
 </head>
 <body onhashchange="hashChange()">
     <form id="actions-form" action="scripts/actions.php" method="GET" style="display: none;"></form>
@@ -29,9 +30,16 @@
     <script src="js/actions.js"></script>
     <script src="js/interface.js"></script>
     <script>
-        hashChange();   // set page to #home by default   
-        var color = localStorage.getItem("color") || "green";
-        setColor(color);
+        hashChange();   // set page to #home by default
+        
+        function pageLoaded() {
+            //var colorName = "yellime";
+            //var colorValue = "#c5ea2b";
+            var colorName = localStorage.getItem("colorName") || "green";
+            var colorValue = localStorage.getItem("colorValue") || "#1aff80";
+
+            setColor(colorName, colorValue);
+        }
     </script>
 </body>
 </html>
