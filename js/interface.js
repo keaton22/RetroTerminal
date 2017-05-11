@@ -1,5 +1,5 @@
 document.onkeydown = function (e) {
-    console.info("Key pressed: " + e.which);
+    //console.info("Key pressed: " + e.which);
     
     switch (e.keyCode) {
         case 38:                    // up arrow
