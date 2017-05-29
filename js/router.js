@@ -1,6 +1,7 @@
 function cleanPage() {
     var main = document.querySelector("#main");
     
+    console.groupEnd();
     while (main.hasChildNodes()) {
         main.removeChild(main.lastChild);
     }

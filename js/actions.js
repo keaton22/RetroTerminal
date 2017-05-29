@@ -18,6 +18,7 @@ function setColor(name, value) {
     document.querySelector('STYLE').innerHTML = '<style>html{}body{color:' + value + ' !important;background-color:' + value + ';}.description{border-bottom-color:' + value + ';}.list .item.selected{background-color:' + value + ';}</style>';
     localStorage.setItem("colorName", name);
     localStorage.setItem("colorValue", value);
+    console.groupEnd();
     console.log('%ccolor set to ' + name + " (" + value + ")", "color: " + value + "; background-image: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%); background-color: " + value + "; padding: 2px;");
 }
 
