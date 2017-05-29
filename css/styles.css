@@ -13,6 +13,7 @@ colors:
     src: url('../fonts/fsex300.woff2') format('woff2'), url('../fonts/fsex300.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    unicode-range: U+0020-007F;
 }
 
 /*:root {
