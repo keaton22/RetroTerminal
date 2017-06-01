@@ -17,13 +17,6 @@
                     "feedback": "Exiting to desktop..."
                 },
                 {
-                    "name": "logout",
-                    "label": "Log Out",
-                    "type": "button",
-                    "action": "logOut",
-                    "feedback": "Logging out..."
-                },
-                {
                     "name": "reboot",
                     "label": "Reboot",
                     "type": "button",

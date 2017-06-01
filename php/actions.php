@@ -7,9 +7,6 @@
         case "exitToDesktop":
             exec('-u chip killall epiphany');
             break;
-        case "logOut":
-            exec('exit');
-            break;
         case "reboot":
             exec('sudo shutdown -r now');
             break;

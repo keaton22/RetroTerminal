@@ -57,9 +57,6 @@ function submitActionsForm(element, e) {
                 case "exitToDesktop":
                     setFeedback(feedback);
                     break;
-                case "logOut":
-                    setFeedback(feedback);
-                    break;
                 case "reboot":
                     setFeedback(feedback);
                     break;
