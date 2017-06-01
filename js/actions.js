@@ -24,7 +24,7 @@ function setColor(name, value) {
 
 function setDifficulty(difficulty) {
     localStorage.setItem("difficulty", difficulty);
-    console.log('Color difficulty to ' + difficulty)
+    console.log('difficulty set to ' + difficulty)
 }
 
 function setFeedback(status) {
