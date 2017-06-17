@@ -2,8 +2,8 @@
     //document.querySelector("body").className = name;
     //document.querySelector("body").style.color = value;
     //document.querySelector("body").style.backgroundColor = value;
-    //document.querySelector(".description").style.borderBottomColor = value;
-    //document.querySelector(".list .item.selected").style.backgroundColor = value;
+    //document.querySelector(".welcome").style.borderBottomColor = value;
+    //document.querySelector(".menu .item.selected").style.backgroundColor = value;
     
     //document.querySelectorAll("li").style.color = value;
     
@@ -15,7 +15,7 @@
 
 function setColor(name, value) {
     document.querySelector("body").className = name;
-    document.querySelector('STYLE').innerHTML = '<style>html{}body{color:' + value + ' !important;background-color:' + value + ';}.description{border-bottom-color:' + value + ';}.list .item.selected{background-color:' + value + ';}</style>';
+    document.querySelector('STYLE').innerHTML = '<style>html{}body{color:' + value + ' !important;background-color:' + value + ';}.welcome{border-bottom-color:' + value + ';}.menu .item.selected{background-color:' + value + ';}</style>';
     localStorage.setItem("colorName", name);
     localStorage.setItem("colorValue", value);
     console.groupEnd();
@@ -27,21 +27,21 @@ function setDifficulty(difficulty) {
     console.log('difficulty set to ' + difficulty)
 }
 
-function setFeedback(status) {
-    document.querySelector(".feedback .status").innerHTML = status;
+function setResult(status) {
+    document.querySelector(".result .status").innerHTML = status;
     window.setTimeout(function () {
-        clearFeedback();
+        clearResult();
     }, 5000);
 }
 
-function clearFeedback() {
-    document.querySelector(".feedback .status").innerHTML = "";
+function clearResult() {
+    document.querySelector(".result .status").innerHTML = "";
 }
 
 function submitActionsForm(element, e) {
     e = e || window.event;
     var action = element.getAttribute("data-action");
-    var feedback = element.getAttribute("data-feedback");
+    var result = element.getAttribute("data-result");
     
     if (e.which == 32 || e.which == 13 || e.which == 1) {   // if enter or spacebar is pressed (or by pressing either a mouse click is sumulated)
         ajax("php/actions.php?action=" + action, "GET", function (response) {
@@ -49,51 +49,57 @@ function submitActionsForm(element, e) {
             // handle actions
             switch (action) {
                 case "playFallout":
-                    setFeedback(feedback);
+                    setResult(result);
                     break;
                 case "resetMinigame":
-                    setFeedback(feedback);
+                    setResult(result);
                     break;
                 case "exitToDesktop":
-                    setFeedback(feedback);
+                    setResult(result);
                     break;
                 case "reboot":
-                    setFeedback(feedback);
+                    setResult(result);
                     break;
                 case "shutdown":
-                    setFeedback(feedback);
+                    setResult(result);
                     break;
                 case "setColorGreen":
                     setColor('green', '#1aff80');
-                    setFeedback(feedback);
+                    setResult(result);
                     //setColor('#1aff80');
                     break;
                 case "setColorBlue":
                     setColor('blue', '#2ecfff');
-                    setFeedback(feedback);
+                    setResult(result);
                     //setColor('#2ecfff');
                     break;
                 case "setColorAmber":
                     setColor('amber', '#ffb642');
-                    setFeedback(feedback);
+                    setResult(result);
                     //setColor('#ffb642');
                     break;
                 case "setColorWhite":
                     setColor('white', '#c0ffff');
-                    setFeedback(feedback);
+                    setResult(result);
                     //setColor('#c0ffff');
                     break;
                 case "setDifficultyEasy":
                     setDifficulty('easy');
-                    setFeedback(feedback);
+                    setResult(result);
                     break;
                 case "setDifficultyMedium":
                     setDifficulty('medium');
-                    setFeedback(feedback);
+                    setResult(result);
                     break;
                 case "setDifficultyHard":
                     setDifficulty('hard');
-                    setFeedback(feedback);
+                    setResult(result);
+                    break;
+                case "setDemoMenuItemButton":
+                    setResult(result);
+                    break;
+                case "setDemoMenuItemLink":
+                    setResult(result);
                     break;
             }
         });    

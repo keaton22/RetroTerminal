@@ -3,32 +3,32 @@
     "templates": [
         
         {
-            "type": "description",
+            "type": "welcome",
             "value": "Change the settings of Retro Terminal"
         },
         {
-            "type": "list",
+            "type": "menu",
             "value": [
                 {
                     "name": "difficulty",
                     "label": "Difficulty",
                     "type": "a",
                     "action": "#difficulty",
-                    "feedback": ""
+                    "result": ""
                 },
                 {
                     "name": "color",
                     "label": "Color",
                     "type": "a",
                     "action": "#color",
-                    "feedback": ""
+                    "result": ""
                 },
                 {
                     "name": "back",
                     "label": "Back",
                     "type": "a",
                     "action": "#home",
-                    "feedback": ""
+                    "result": ""
                 }
             ]
         }

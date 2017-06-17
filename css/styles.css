@@ -63,7 +63,7 @@ button:focus, a:focus {
     content: "-";
 }
 
-.description {
+.welcome {
     font-size: 16px;
     display: inline-block;
     margin: 0;
@@ -73,12 +73,12 @@ button:focus, a:focus {
     border-bottom-color: #1aff80;
 }
 
-.list {
+.menu {
     display: block;
     width: 100%;
 }
 
-.list .item {
+.menu .item {
     display: block;
     width: 100%;
     height: 16px;        /* prevents applied :focus from squishing the automatic height */
@@ -86,13 +86,13 @@ button:focus, a:focus {
     color: inherit;
 }
 
-.list .item.selected * {
+.menu .item.selected * {
     display: block;
     width: 100%;
     color: rgba(0,0,0,.8);
     background-color: inherit;
 }
 
-.feedback {
+.result {
     font-size: 16px;
 }

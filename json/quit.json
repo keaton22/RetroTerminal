@@ -3,39 +3,39 @@
     "templates": [
         
         {
-            "type": "description",
+            "type": "welcome",
             "value": "Choose an action"
         },
         {
-            "type": "list",
+            "type": "menu",
             "value": [
                 {
                     "name": "desktop",
                     "label": "Exit to Desktop",
                     "type": "button",
                     "action": "exitToDesktop",
-                    "feedback": "Exiting to desktop..."
+                    "result": "Exiting to desktop..."
                 },
                 {
                     "name": "reboot",
                     "label": "Reboot",
                     "type": "button",
                     "action": "reboot",
-                    "feedback": "Rebooting..."
+                    "result": "Rebooting..."
                 },
                 {
                     "name": "shutdown",
                     "label": "Shutdown",
                     "type": "button",
                     "action": "shutdown",
-                    "feedback": "Shutting down..."
+                    "result": "Shutting down..."
                 },
                 {
                     "name": "back",
                     "label": "Back",
                     "type": "a",
                     "action": "#home",
-                    "feedback": ""
+                    "result": ""
                 }
             ]
         }

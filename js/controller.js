@@ -44,15 +44,15 @@ function templateHandler(response, meta) {
     console.groupEnd();
 }
 
-// write description
-function writeDescription(template, meta) {
+// write welcome
+function writeWelcome(template, meta) {
     document.querySelector("#main").innerHTML += template;
     document.querySelector("." + meta.type).innerHTML = meta.value;
     console.log("injected data into " + meta.type);
 }
 
-// write list
-function writeList(template, meta) {
+// write menu
+function writeMenu(template, meta) {
     document.querySelector("#main").innerHTML += template;
     
     for(i = 0; i < meta.value.length; i++) {
@@ -71,21 +71,21 @@ function writeList(template, meta) {
                 elem.setAttribute("onclick", 'submitActionsForm(this, event)');
                 elem.setAttribute("onkeydown", 'submitActionsForm(this, event)');
                 elem.setAttribute("data-action", meta.value[i].action);
-                elem.setAttribute("data-feedback", meta.value[i].feedback);
+                elem.setAttribute("data-result", meta.value[i].result);
                 break;
         }        
         
         elem.appendChild(text);
         li.appendChild(elem);
         document.querySelector("." + meta.type).appendChild(li);
-        console.log("injected \"" + meta.value[i].label + "\" into list");
+        console.log("injected \"" + meta.value[i].label + "\" into menu");
     }
     
-    document.querySelector(".list .item").className += " selected";
-    document.querySelector(".list .item").firstChild.focus();
+    document.querySelector(".menu .item").className += " selected";
+    document.querySelector(".menu .item").firstChild.focus();
 }
 
-function writeMessage(template, meta) {
+function writeNote(template, meta) {
     document.querySelector("#main").innerHTML += template;
     document.querySelector("." + meta.type).innerHTML = meta.value;
     console.log("injected data into " + meta.type);

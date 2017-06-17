@@ -3,11 +3,11 @@
     "templates": [
         
         {
-            "type": "description",
+            "type": "welcome",
             "value": "Change the color of Retro Terminal"
         },
         {
-            "type": "list",
+            "type": "menu",
             "value": [
                 {
                     "name": "green",
@@ -15,7 +15,7 @@
                     "value": "#1aff80",
                     "type": "button",
                     "action": "setColorGreen",
-                    "feedback": "Color set to green..."
+                    "result": "Color set to green..."
                 },
                 {
                     "name": "blue",
@@ -23,7 +23,7 @@
                     "value": "#2ecfff",
                     "type": "button",
                     "action": "setColorBlue",
-                    "feedback": "Color set to blue..."
+                    "result": "Color set to blue..."
                 },
                 {
                     "name": "amber",
@@ -31,7 +31,7 @@
                     "value": "#ffb642",
                     "type": "button",
                     "action": "setColorAmber",
-                    "feedback": "Color set to amber..."
+                    "result": "Color set to amber..."
                 },
                 {
                     "name": "white",
@@ -39,14 +39,14 @@
                     "value": "#c0ffff",
                     "type": "button",
                     "action": "setColorWhite",
-                    "feedback": "Color set to white..."
+                    "result": "Color set to white..."
                 },
                 {
                     "name": "back",
                     "label": "Back",
                     "type": "a",
                     "action": "#settings",
-                    "feedback": ""
+                    "result": ""
                 }
             ]
         }

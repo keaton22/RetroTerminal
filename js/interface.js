@@ -17,22 +17,22 @@ document.onkeydown = function (e) {
 
 function moveCursor(direction) {
     
-    if (document.querySelector(".list")) {
+    if (document.querySelector(".menu")) {
                 
-        var length = document.querySelectorAll(".list > *").length;     // get number of items in list
+        var length = document.querySelectorAll(".menu > *").length;     // get number of items in menu
                 
         if (direction == 0) {      // if key pressed is down arrow
-            var current = document.querySelector(".list .item.selected");
-            var next = document.querySelector(".list .item.selected").nextSibling;
+            var current = document.querySelector(".menu .item.selected");
+            var next = document.querySelector(".menu .item.selected").nextSibling;
             
-            if (document.querySelector(".list .item.selected").nextSibling) {   // if not last of type
+            if (document.querySelector(".menu .item.selected").nextSibling) {   // if not last of type
                 current.className = "item";
                 next.className += " selected";
                 next.firstChild.focus();
                 current = next;
             }
             else {
-                next = document.querySelector(".list").firstChild;
+                next = document.querySelector(".menu").firstChild;
                 current.className = "item";
                 next.className += " selected";
                 next.firstChild.focus();
@@ -41,17 +41,17 @@ function moveCursor(direction) {
         }
         
         if (direction == 1) {      // if key pressed is up arrow
-            var current = document.querySelector(".list .item.selected");
-            var next = document.querySelector(".list .item.selected").previousSibling;
+            var current = document.querySelector(".menu .item.selected");
+            var next = document.querySelector(".menu .item.selected").previousSibling;
             
-            if (document.querySelector(".list .item.selected").previousSibling) {   // if not last of type
+            if (document.querySelector(".menu .item.selected").previousSibling) {   // if not last of type
                 current.className = "item";
                 next.className += " selected";
                 next.firstChild.focus();
                 current = next;
             }
             else {
-                next = document.querySelector(".list").lastChild;
+                next = document.querySelector(".menu").lastChild;
                 current.className = "item";
                 next.className += " selected";
                 next.firstChild.focus();

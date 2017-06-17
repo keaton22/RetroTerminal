@@ -1,12 +1,12 @@
 NOTES:
 
-- feedback has a 5000ms timer before it expires
-- existing feedback can be overwritten by new feedback before expiration
+- result has a 5000ms timer before it expires
+- existing result can be overwritten by new result before expiration
 
-- <a> elements can't have feedback with current structure
+- <a> elements can't have result with current structure
 
-- click link => go to new view => see feedback on new page
-- click button => do action (reload current page) => see feedback on current page
-- feedback:
+- click link => go to new view => see result on new page
+- click button => do action (reload current page) => see result on current page
+- result:
 	- to indicate completed/pending actions, use ...
 	- to indicate information, DON'T use ...
