@@ -1,0 +1,36 @@
+{
+    "page": "menu-demo",
+    "templates": [
+        
+        {
+            "type": "welcome",
+            "value": "This is welcome text for a menu."
+        },
+        {
+            "type": "menu",
+            "value": [
+                {
+                    "name": "menu-item-button",
+                    "label": "Item (Button)",
+                    "type": "button",
+                    "action": "setDemoMenuItemButton",
+                    "result": "This is result text from a button. Buttons trigger actions..."
+                },
+                {
+                    "name": "menu-item-link",
+                    "label": "Item (Link)",
+                    "type": "a",
+                    "action": "#note-demo",
+                    "result": "This is result text from a link. Links change pages..."
+                },
+                {
+                    "name": "back",
+                    "label": "Back",
+                    "type": "a",
+                    "action": "#demo",
+                    "result": ""
+                }
+            ]
+        }
+    ]
+}
