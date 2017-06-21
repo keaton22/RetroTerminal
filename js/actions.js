@@ -22,9 +22,9 @@ function setColor(name, value) {
     console.log('%ccolor set to ' + name + " (" + value + ")", "color: " + value + "; background-image: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%); background-color: " + value + "; padding: 2px;");
 }
 
-function setDifficulty(difficulty) {
-    localStorage.setItem("difficulty", difficulty);
-    console.log('difficulty set to ' + difficulty)
+function setDifficulty(value) {
+    localStorage.setItem("difficulty", value);
+    console.log('difficulty set to ' + value)
 }
 
 function setResult(status) {
