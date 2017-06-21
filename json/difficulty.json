@@ -10,6 +10,14 @@
             "type": "menu",
             "value": [
                 {
+                    "name": "veryeasy",
+                    "label": "Very Easy",
+                    "type": "button",
+                    "action": "setDifficulty",
+                    "value": "veryeasy",
+                    "result": "Difficulty set to very easy..."
+                },
+                {
                     "name": "easy",
                     "label": "Easy",
                     "type": "button",
@@ -18,12 +26,12 @@
                     "result": "Difficulty set to easy..."
                 },
                 {
-                    "name": "medium",
-                    "label": "Medium",
+                    "name": "average",
+                    "label": "Average",
                     "type": "button",
                     "action": "setDifficulty",
-                    "value": "medium",
-                    "result": "Difficulty set to medium..."
+                    "value": "average",
+                    "result": "Difficulty set to average..."
                 },
                 {
                     "name": "hard",
@@ -32,6 +40,14 @@
                     "action": "setDifficulty",
                     "value": "hard",
                     "result": "Difficulty set to hard..."
+                },
+                {
+                    "name": "veryhard",
+                    "label": "Very Hard",
+                    "type": "button",
+                    "action": "setDifficulty",
+                    "value": "veryhard",
+                    "result": "Difficulty set to very hard..."
                 },
                 {
                     "name": "back",
