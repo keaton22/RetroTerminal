@@ -64,14 +64,15 @@ function writeMenu(template, meta) {
         
         switch (meta.value[i].type) {
             case "a":
-                elem.setAttribute("href", meta.value[i].action);
+                elem.setAttribute("href", meta.value[i].location);
+                elem.setAttribute("data-name", (meta.value[i].name || ""));
+                elem.setAttribute("data-result", (meta.value[i].result || ""));
                 break;
             case "button":
-                elem.setAttribute("for", "actions-form");
-                elem.setAttribute("onclick", 'submitActionsForm(this, event)');
-                elem.setAttribute("onkeydown", 'submitActionsForm(this, event)');
-                elem.setAttribute("data-action", meta.value[i].action);
-                elem.setAttribute("data-result", meta.value[i].result);
+                elem.setAttribute("data-name", (meta.value[i].name || ""));
+                elem.setAttribute("data-value", (meta.value[i].value || ""));
+                elem.setAttribute("data-action", (meta.value[i].action || ""));
+                elem.setAttribute("data-result", (meta.value[i].result || ""));
                 break;
         }        
         

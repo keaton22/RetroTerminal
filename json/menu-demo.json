@@ -20,14 +20,14 @@
                     "name": "menu-item-link",
                     "label": "Item (Link)",
                     "type": "a",
-                    "action": "#note-demo",
+                    "location": "#note-demo",
                     "result": "This is result text from a link. Links change pages..."
                 },
                 {
                     "name": "back",
                     "label": "Back",
                     "type": "a",
-                    "action": "#demo",
+                    "location": "#demo",
                     "result": ""
                 }
             ]

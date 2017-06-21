@@ -13,21 +13,21 @@
                     "name": "menu-template",
                     "label": "Menu Template",
                     "type": "a",
-                    "action": "#menu-demo",
+                    "location": "#menu-demo",
                     "result": ""
                 },
                 {
                     "name": "note-template",
                     "label": "Note Template",
                     "type": "a",
-                    "action": "#note-demo",
+                    "location": "#note-demo",
                     "result": ""
                 },
                 {
                     "name": "back",
                     "label": "Back",
                     "type": "a",
-                    "action": "#home",
+                    "location": "#home",
                     "result": ""
                 }
             ]

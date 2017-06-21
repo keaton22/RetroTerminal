@@ -13,7 +13,7 @@
                     "name": "about",
                     "label": "About Retro Terminal",
                     "type": "a",
-                    "action": "#about",
+                    "location": "#about",
                     "result": ""
                 },
                 {
@@ -27,14 +27,14 @@
                     "name": "demo",
                     "label": "Demo",
                     "type": "a",
-                    "action": "#demo",
+                    "location": "#demo",
                     "result": ""
                 },
                 {
                     "name": "settings",
                     "label": "Settings",
                     "type": "a",
-                    "action": "#settings",
+                    "location": "#settings",
                     "result": ""
                 },
                 {
@@ -48,7 +48,7 @@
                     "name": "quit",
                     "label": "Quit",
                     "type": "a",
-                    "action": "#quit",
+                    "location": "#quit",
                     "result": ""
                 }
             ]

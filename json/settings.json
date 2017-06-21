@@ -13,21 +13,21 @@
                     "name": "difficulty",
                     "label": "Difficulty",
                     "type": "a",
-                    "action": "#difficulty",
+                    "location": "#difficulty",
                     "result": ""
                 },
                 {
                     "name": "color",
                     "label": "Color",
                     "type": "a",
-                    "action": "#color",
+                    "location": "#color",
                     "result": ""
                 },
                 {
                     "name": "back",
                     "label": "Back",
                     "type": "a",
-                    "action": "#home",
+                    "location": "#home",
                     "result": ""
                 }
             ]

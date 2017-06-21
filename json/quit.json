@@ -34,7 +34,7 @@
                     "name": "back",
                     "label": "Back",
                     "type": "a",
-                    "action": "#home",
+                    "location": "#home",
                     "result": ""
                 }
             ]

@@ -7,7 +7,6 @@
     <style></style>
 </head>
 <body onhashchange="hashChange()">
-    <form id="actions-form" action="scripts/actions.php" method="GET" style="display: none;"></form>
     <div id="wrapper">
         <div id="header">
             <h1 class="os">RobCo Industries Unified Operating System</h1>
@@ -39,6 +38,22 @@
             
             setColor(colorName, colorValue);
             setDifficulty(difficulty);
+            
+            // event listeners (click and keydown) for menu items
+            var menuItems = document.querySelectorAll(".menu .item > *");   // store each menu item in an array
+            for (var i = 0; i < menuItems.length; i++) {    // iterate through each menu item and apply event listeners
+                
+                menuItems[i].addEventListener("click", function () {        // click event
+                    menuItemSelected(this);
+                });
+                
+                menuItems[i].addEventListener("keydown", function (e) {     // 'enter' keydown event
+                    var key = e.which || e.keyCode;
+                    if ( key == 13) {
+                        menuItemSelected(this);     
+                    }
+                });
+            }
         }
     </script>
 </body>

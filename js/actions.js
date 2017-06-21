@@ -38,70 +38,29 @@ function clearResult() {
     document.querySelector(".result .status").innerHTML = "";
 }
 
-function submitActionsForm(element, e) {
-    e = e || window.event;
-    var action = element.getAttribute("data-action");
-    var result = element.getAttribute("data-result");
+function menuItemSelected(elem) {       // a menu item has been pressed (via enter key)/clicked on    
+    var action = elem.getAttribute("data-action") || "";
+    var name = elem.getAttribute("data-name") || "";
+    var value = elem.getAttribute("data-value") || "";
     
-    if (e.which == 32 || e.which == 13 || e.which == 1) {   // if enter or spacebar is pressed (or by pressing either a mouse click is sumulated)
-        ajax("php/actions.php?action=" + action, "GET", function (response) {
-
-            // handle actions
-            switch (action) {
-                case "playFallout":
-                    setResult(result);
-                    break;
-                case "resetMinigame":
-                    setResult(result);
-                    break;
-                case "exitToDesktop":
-                    setResult(result);
-                    break;
-                case "reboot":
-                    setResult(result);
-                    break;
-                case "shutdown":
-                    setResult(result);
-                    break;
-                case "setColorGreen":
-                    setColor('green', '#1aff80');
-                    setResult(result);
-                    //setColor('#1aff80');
-                    break;
-                case "setColorBlue":
-                    setColor('blue', '#2ecfff');
-                    setResult(result);
-                    //setColor('#2ecfff');
-                    break;
-                case "setColorAmber":
-                    setColor('amber', '#ffb642');
-                    setResult(result);
-                    //setColor('#ffb642');
-                    break;
-                case "setColorWhite":
-                    setColor('white', '#c0ffff');
-                    setResult(result);
-                    //setColor('#c0ffff');
-                    break;
-                case "setDifficultyEasy":
-                    setDifficulty('easy');
-                    setResult(result);
-                    break;
-                case "setDifficultyMedium":
-                    setDifficulty('medium');
-                    setResult(result);
-                    break;
-                case "setDifficultyHard":
-                    setDifficulty('hard');
-                    setResult(result);
-                    break;
-                case "setDemoMenuItemButton":
-                    setResult(result);
-                    break;
-                case "setDemoMenuItemLink":
-                    setResult(result);
-                    break;
-            }
-        });    
+    if (action !== "") {        // if the items selected has an action
+                
+        switch (action) {
+            case "playFallout":
+            case "resetMinigame":
+            case "exitToDesktop":
+            case "reboot":
+            case "shutdown":
+                ajax("php/actions.php?action=" + action, "GET", function (response) {});
+                break;
+            case "setColor":
+                setColor(name, value);
+                break;
+            case "setDifficulty":
+                setDifficulty(value);
+                break;
+        }
     }
+    
+    setResult(elem.getAttribute("data-result"));
 }
