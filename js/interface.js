@@ -1,7 +1,7 @@
 document.onkeydown = function (e) {
     //console.info("Key pressed: " + e.which);
     
-    switch (e.keyCode) {
+    switch (e.which || e.keyCode) {
         case 38:                    // up arrow
             moveCursor(1);
             break;
