@@ -96,6 +96,7 @@ function templateLoaded() {
     templatesLoaded++;
     
     if(templatesLoaded === requiredTemplates) {
+        templatesLoaded = 0;
         console.groupEnd();
         console.info('all templates loaded successfully!');
         console.groupEnd();
