@@ -24,6 +24,20 @@
                     "result": "Fallout coming soon"
                 },
                 {
+                    "name": "reign-of-grelok-menu",
+                    "label": "Reign of Grelok Menu",
+                    "type": "a",
+                    "location": "#reign-of-grelok-menu",
+                    "result": ""
+                },
+                {
+                    "name": "reign-of-grelok-note",
+                    "label": "Reign of Grelok Note",
+                    "type": "a",
+                    "location": "#reign-of-grelok-note",
+                    "result": ""
+                },
+                {
                     "name": "demo",
                     "label": "Demo",
                     "type": "a",
