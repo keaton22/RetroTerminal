@@ -9,6 +9,10 @@
         {
             "type": "note",
             "value": "I am the body text of a note. How amazing is that!"
+        },
+        {
+            "type": "redirect",
+            "value": "#demo"
         }
     ]
 }
