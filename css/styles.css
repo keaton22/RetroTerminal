@@ -108,7 +108,8 @@ button:focus, a:focus {
     display: inline-block;
     margin: 0;
     padding-bottom: 6px;
-    border-bottom: 1px solid currentColor;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
 }
 
 .menu {
@@ -126,10 +127,6 @@ button:focus, a:focus {
     line-height: 22px;    
     margin: 2px 36px 2px 0;
     color: inherit;
-}
-
-.menu .item.selected {
-    background-color: currentColor;
 }
 
 .menu .item > * {
