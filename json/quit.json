@@ -10,6 +10,13 @@
             "type": "menu",
             "value": [
                 {
+                    "name": "reset",
+                    "label": "Reset Hacking Minigame",
+                    "type": "button",
+                    "action": "resetMinigame",
+                    "result": "Resetting Minigame..."
+                },
+                {
                     "name": "logoff",
                     "label": "Logoff",
                     "type": "button",

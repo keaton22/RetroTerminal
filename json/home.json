@@ -38,13 +38,6 @@
                     "result": ""
                 },
                 {
-                    "name": "reset",
-                    "label": "Reset Minigame",
-                    "type": "button",
-                    "action": "resetMinigame",
-                    "result": "Resetting Minigame..."
-                },
-                {
                     "name": "quit",
                     "label": "Quit",
                     "type": "a",
