@@ -4,7 +4,7 @@
     switch ($action) {
         case "playFallout":
             break;
-        case "exitToDesktop":
+        case "logoff":
             exec('-u chip killall epiphany');
             break;
         case "reboot":

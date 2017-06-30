@@ -10,10 +10,10 @@
             "type": "menu",
             "value": [
                 {
-                    "name": "desktop",
-                    "label": "Exit to Desktop",
+                    "name": "logoff",
+                    "label": "Logoff",
                     "type": "button",
-                    "action": "exitToDesktop",
+                    "action": "logoff",
                     "result": "Exiting to desktop..."
                 },
                 {
