@@ -4,9 +4,9 @@
     //document.querySelector("body").style.backgroundColor = value;
     //document.querySelector(".welcome").style.borderBottomColor = value;
     //document.querySelector(".menu .item.selected").style.backgroundColor = value;
-    
+
     //document.querySelectorAll("li").style.color = value;
-    
+
     //localStorage.setItem("colorName", name);
     //localStorage.setItem("colorValue", value);
     //console.log('%ccolor set to ' + name + " (" + value + ")", "color: " + value + "; background-image: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%); background-color: " + value + "; padding: 2px;");
@@ -38,13 +38,13 @@ function clearResult() {
     document.querySelector(".result .status").innerHTML = "";
 }
 
-function menuItemSelected(elem) {       // a menu item has been pressed (via enter key)/clicked on    
+function menuItemSelected(elem) {       // a menu item has been pressed (via enter key)/clicked on
     var action = elem.getAttribute("data-action") || "";
     var name = elem.getAttribute("data-name") || "";
     var value = elem.getAttribute("data-value") || "";
-    
+
     if (action !== "") {        // if the items selected has an action
-                
+
         switch (action) {
             case "playFallout":
             case "resetMinigame":
@@ -61,6 +61,6 @@ function menuItemSelected(elem) {       // a menu item has been pressed (via ent
                 break;
         }
     }
-    
+
     setResult(elem.getAttribute("data-result"));
 }

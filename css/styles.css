@@ -1,4 +1,4 @@
-/* 
+/*
 
 colors:
 - green: #1aff80
@@ -47,7 +47,7 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
-    
+
 /*    box-shadow: 0 0 0 1px salmon;*/
 }
 
@@ -124,7 +124,7 @@ button:focus, a:focus {
     display: block;
     width: auto;
     height: 22px;        /* prevents applied :focus from squishing the automatic height */
-    line-height: 22px;    
+    line-height: 22px;
     margin: 2px 36px 2px 0;
     color: inherit;
 }
@@ -163,5 +163,5 @@ button:focus, a:focus {
 }
 
 #footer .result {
-    font-size: inherit;    
+    font-size: inherit;
 }
