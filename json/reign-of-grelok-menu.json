@@ -1,7 +1,7 @@
 {
     "page": "reign-of-grelok-menu",
     "templates": [
-        
+
         {
             "type": "welcome",
             "value": "Reign of Grelok (beta v.632)"
@@ -48,7 +48,7 @@
                     "name": "back",
                     "label": "Back",
                     "type": "a",
-                    "location": "#home",
+                    "location": "#games",
                     "result": ""
                 }
             ]

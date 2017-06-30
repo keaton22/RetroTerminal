@@ -1,0 +1,43 @@
+{
+    "page": "games",
+    "templates": [
+
+        {
+            "type": "welcome",
+            "value": "That's right! Retro Terminal has games!"
+        },
+        {
+            "type": "menu",
+            "value": [
+                {
+                    "name": "fallout",
+                    "label": "Fallout",
+                    "type": "button",
+                    "action": "playFallout",
+                    "result": "Fallout coming soon"
+                },
+                {
+                    "name": "reign-of-grelok-menu",
+                    "label": "Reign of Grelok Menu",
+                    "type": "a",
+                    "location": "#reign-of-grelok-menu",
+                    "result": ""
+                },
+                {
+                    "name": "reign-of-grelok-note",
+                    "label": "Reign of Grelok Note",
+                    "type": "a",
+                    "location": "#reign-of-grelok-note",
+                    "result": ""
+                },
+                {
+                    "name": "back",
+                    "label": "Back",
+                    "type": "a",
+                    "location": "#home",
+                    "result": ""
+                }
+            ]
+        }
+    ]
+}

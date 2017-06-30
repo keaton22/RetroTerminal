@@ -1,7 +1,7 @@
 {
     "page": "home",
     "templates": [
-        
+
         {
             "type": "welcome",
             "value": "You've hacked Retro Terminal! Explore the options below to learn more."
@@ -17,24 +17,10 @@
                     "result": ""
                 },
                 {
-                    "name": "fallout",
-                    "label": "Play Fallout",
-                    "type": "button",
-                    "action": "playFallout",
-                    "result": "Fallout coming soon"
-                },
-                {
-                    "name": "reign-of-grelok-menu",
-                    "label": "Reign of Grelok Menu",
+                    "name": "games",
+                    "label": "Games",
                     "type": "a",
-                    "location": "#reign-of-grelok-menu",
-                    "result": ""
-                },
-                {
-                    "name": "reign-of-grelok-note",
-                    "label": "Reign of Grelok Note",
-                    "type": "a",
-                    "location": "#reign-of-grelok-note",
+                    "location": "#games",
                     "result": ""
                 },
                 {
