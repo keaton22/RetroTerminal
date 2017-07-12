@@ -36,7 +36,6 @@ function dataHandler(response) {
 // handle template
 function templateHandler(response, meta) {
     template = response.responseText;
-    console.warn(meta);
     console.groupCollapsed("got template _" + meta.type + ".html");
 
     // run correct "write" function, replaces switch statement
@@ -69,12 +68,28 @@ function writeMenu(template, meta) {
                 elem.setAttribute("href", meta.value[i].location);
                 elem.setAttribute("data-name", (meta.value[i].name || ""));
                 elem.setAttribute("data-result", (meta.value[i].result || ""));
+                elem.addEventListener("click", function () {
+                    menuItemSelected(this);
+                });
+                elem.addEventListener("keydown", function (e) {
+                    if (e.which == 13) {        // enter key is pressed
+                        menuItemSelected(this);
+                    }
+                });
                 break;
             case "button":
                 elem.setAttribute("data-name", (meta.value[i].name || ""));
                 elem.setAttribute("data-value", (meta.value[i].value || ""));
                 elem.setAttribute("data-action", (meta.value[i].action || ""));
                 elem.setAttribute("data-result", (meta.value[i].result || ""));
+                elem.addEventListener("click", function () {
+                    menuItemSelected(this);
+                });
+                elem.addEventListener("keydown", function (e) {
+                    if (e.which == 13) {            // enter key is pressed
+                        menuItemSelected(this);
+                    }
+                });
                 break;
         }
 
@@ -92,7 +107,6 @@ function writeNote(template, meta) {
     document.querySelector("#main").innerHTML += template;
     document.querySelector("." + meta.type).innerHTML = meta.value;
     document.querySelector("." + meta.type).setAttribute("data-source", meta.source);
-    console.warn(meta);
     console.log("injected data into " + meta.type);
 }
 
