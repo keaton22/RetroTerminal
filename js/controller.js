@@ -24,9 +24,10 @@ function dataHandler(response) {
     for(i = 0; i < data.templates.length; i++) {
         var type = data.templates[i].type;
         var value = data.templates[i].value;
+        var source = data.source;
 
         // run "ajax" function to get correct template, replaces switch statement
-        ajax("html/_" + type +".html", "GET", templateHandler, {"type": type, "value": value});
+        ajax("html/_" + type +".html", "GET", templateHandler, {"type": type, "value": value, "source": source});
         console.log("page has a " + type);
     }
     requiredTemplates = data.templates.length;
@@ -35,6 +36,7 @@ function dataHandler(response) {
 // handle template
 function templateHandler(response, meta) {
     template = response.responseText;
+    console.warn(meta);
     console.groupCollapsed("got template _" + meta.type + ".html");
 
     // run correct "write" function, replaces switch statement
@@ -89,6 +91,8 @@ function writeMenu(template, meta) {
 function writeNote(template, meta) {
     document.querySelector("#main").innerHTML += template;
     document.querySelector("." + meta.type).innerHTML = meta.value;
+    document.querySelector("." + meta.type).setAttribute("data-source", meta.source);
+    console.warn(meta);
     console.log("injected data into " + meta.type);
 }
 
