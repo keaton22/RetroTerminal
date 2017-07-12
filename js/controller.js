@@ -40,6 +40,7 @@ function templateHandler(response, meta) {
 
     // run correct "write" function, replaces switch statement
     eval("write" + meta.type.charAt(0).toUpperCase() + meta.type.slice(1) + "(template, meta);");
+    document.body.className += " template-" + meta.type;
     console.log("injected _" + meta.type + ".html into page");
     templateLoaded();
     console.groupEnd();
