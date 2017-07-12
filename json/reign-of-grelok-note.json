@@ -1,5 +1,6 @@
 {
     "page": "reign-of-grelok-note",
+    "source": "#games",
     "templates": [
 
         {
@@ -9,10 +10,6 @@
         {
             "type": "note",
             "value": "\"Hoo-hoo!&nbsp;&nbsp;The slayer of Grelok approaches, raw stone in hand, just as I've seen!\"&nbsp;&nbsp;The wizard's pointy hat bobs excitedly as he points a finger at you.&nbsp;&nbsp;Suddenly, a pale orange arc of light extends from the knobby finger and draws the gemstone from your bag before you can react.&nbsp;&nbsp;The gemstone halts and hovers in the air before the wizard's nose.&nbsp;&nbsp;<br><br>\"Essence be true, powers renew, <br>Fatty-Hoo-Do!\"&nbsp;&nbsp;With that, he slaps the hovering stone, smashing it against the smooth stone of the tower.&nbsp;&nbsp;In a burst of light, the stone splits into two, and one lands in each outstretched palm of the"
-        },
-        {
-            "type": "redirect",
-            "value": "#games"
         }
     ]
 }
