@@ -5,13 +5,13 @@
         case "playFallout":
             break;
         case "logoff":
-            exec('-u chip killall epiphany');
+            shell_exec('sudo -u chip killall epiphany');
             break;
         case "reboot":
-            exec('sudo shutdown -r now');
+        shell_exec('sudo /sbin/shutdown -r now');
             break;
         case "shutdown":
-            exec('sudo shutdown -h now');
+            shell_exec('sudo /sbin/shutdown -h now');
             break;
     }
 ?>
