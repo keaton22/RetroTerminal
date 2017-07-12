@@ -14,7 +14,7 @@
 //}
 
 function setColor(name, value) {
-    document.querySelector("body").className = name;
+    document.body.className += " color-" + name;
     document.querySelector('STYLE').innerHTML = '<style>html{}body{color:' + value + ' !important;background-color:' + value + ';}.welcome{border-bottom-color:' + value + ';}.menu .item.selected{background-color:' + value + ';}</style>';
     localStorage.setItem("colorName", name);
     localStorage.setItem("colorValue", value);
