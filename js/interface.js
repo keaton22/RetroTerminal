@@ -1,6 +1,6 @@
 document.onkeydown = function (e) {
     //console.info("Key pressed: " + e.which);
-    
+
     switch (e.which || e.keyCode) {
         case 38:                    // up arrow
             moveCursor(1);
@@ -12,19 +12,21 @@ document.onkeydown = function (e) {
         case 8:                     // Backspace key
             window.history.back();
             hashChange();
+        case 9:                     // Tab key
+            e.preventDefault();
         }
 }
 
 function moveCursor(direction) {
-    
+
     if (document.querySelector(".menu")) {
-                
+
         var length = document.querySelectorAll(".menu > *").length;     // get number of items in menu
-                
+
         if (direction == 0) {      // if key pressed is down arrow
             var current = document.querySelector(".menu .item.selected");
             var next = document.querySelector(".menu .item.selected").nextSibling;
-            
+
             if (document.querySelector(".menu .item.selected").nextSibling) {   // if not last of type
                 current.className = "item";
                 next.className += " selected";
@@ -39,11 +41,11 @@ function moveCursor(direction) {
                 current = next;
             }
         }
-        
+
         if (direction == 1) {      // if key pressed is up arrow
             var current = document.querySelector(".menu .item.selected");
             var next = document.querySelector(".menu .item.selected").previousSibling;
-            
+
             if (document.querySelector(".menu .item.selected").previousSibling) {   // if not last of type
                 current.className = "item";
                 next.className += " selected";
