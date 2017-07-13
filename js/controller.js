@@ -60,48 +60,34 @@ function writeMenu(template, meta) {
     for(i = 0; i < meta.value.length; i++) {
 
         var li = document.createElement("li");
-        var elem = document.createElement(meta.value[i].type);
         var text = document.createTextNode(meta.value[i].label);
         li.className = "item";
 
-        switch (meta.value[i].type) {
-            case "a":
-                elem.setAttribute("href", meta.value[i].location);
-                elem.setAttribute("data-name", (meta.value[i].name || ""));
-                elem.setAttribute("data-result", (meta.value[i].result || ""));
-                elem.addEventListener("click", function () {
-                    menuItemSelected(this);
-                });
-                elem.addEventListener("keydown", function (e) {
-                    if (e.which == 13) {        // enter key is pressed
-                        menuItemSelected(this);
-                    }
-                });
-                break;
-            case "button":
-                elem.setAttribute("data-name", (meta.value[i].name || ""));
-                elem.setAttribute("data-value", (meta.value[i].value || ""));
-                elem.setAttribute("data-action", (meta.value[i].action || ""));
-                elem.setAttribute("data-result", (meta.value[i].result || ""));
-                elem.addEventListener("click", function () {
-                    menuItemSelected(this);
-                });
-                elem.addEventListener("keydown", function (e) {
-                    if (e.which == 13) {            // enter key is pressed
-                        menuItemSelected(this);
-                    }
-                });
-                break;
-        }
+        li.setAttribute("data-name", (meta.value[i].name || ""));                                     // set name (required)
 
-        elem.appendChild(text);
-        li.appendChild(elem);
-        document.querySelector("." + meta.type).appendChild(li);
+        // the logic below only allows attributes that exist to be created
+        meta.value[i].location && li.setAttribute("data-location", meta.value[i].location);           // set location
+        meta.value[i].action && li.setAttribute("data-action", (meta.value[i].action));               // set action
+        meta.value[i].value && li.setAttribute("data-value", (meta.value[i].value));                  // set value
+        meta.value[i].result && li.setAttribute("data-result", (meta.value[i].result));               // set result
+
+        meta.value[i].action && li.addEventListener("click", function () {                            // click event for action
+            menuItemSelected(this);
+        });
+
+        meta.value[i].action && li.addEventListener("keydown", function (e) {                         // keydown event for action
+            if (e.which == 13) {                                                                      // if enter key is pressed
+                menuItemSelected(this);
+            }
+        });
+
+        li.appendChild(text);                                                           // put text in <li> elements
+        document.querySelector("." + meta.type).appendChild(li);                        // put <li> elements in .menu
         console.log("injected \"" + meta.value[i].label + "\" into " + meta.type);
     }
 
-    document.querySelector("." + meta.type + " > *").className += " selected";
-    document.querySelector("." + meta.type + " > *").firstChild.focus();
+    document.querySelector("." + meta.type + " ." + li.className).className += " selected";
+    document.querySelector("." + meta.type + " ." + li.className).focus();
 }
 
 function writeNote(template, meta) {
