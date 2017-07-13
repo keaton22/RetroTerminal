@@ -12,35 +12,30 @@
                 {
                     "name": "reset",
                     "label": "Reset Hacking Minigame",
-                    "type": "button",
                     "action": "resetMinigame",
                     "result": "Resetting Minigame..."
                 },
                 {
                     "name": "logoff",
                     "label": "Logoff",
-                    "type": "button",
                     "action": "logoff",
                     "result": "Exiting to desktop..."
                 },
                 {
                     "name": "reboot",
                     "label": "Reboot",
-                    "type": "button",
                     "action": "reboot",
                     "result": "Rebooting..."
                 },
                 {
                     "name": "shutdown",
                     "label": "Shutdown",
-                    "type": "button",
                     "action": "shutdown",
                     "result": "Shutting down..."
                 },
                 {
                     "name": "back",
                     "label": "Back",
-                    "type": "a",
                     "location": "#home",
                     "result": ""
                 }

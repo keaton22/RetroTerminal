@@ -13,7 +13,6 @@
                     "name": "green",
                     "label": "Green",
                     "value": "#1aff80",
-                    "type": "button",
                     "action": "setColor",
                     "result": "Color set to green..."
                 },
@@ -21,7 +20,6 @@
                     "name": "blue",
                     "label": "Blue",
                     "value": "#2ecfff",
-                    "type": "button",
                     "action": "setColor",
                     "result": "Color set to blue..."
                 },
@@ -29,7 +27,6 @@
                     "name": "amber",
                     "label": "Amber",
                     "value": "#ffb642",
-                    "type": "button",
                     "action": "setColor",
                     "result": "Color set to amber..."
                 },
@@ -37,14 +34,12 @@
                     "name": "white",
                     "label": "White",
                     "value": "#c0ffff",
-                    "type": "button",
                     "action": "setColor",
                     "result": "Color set to white..."
                 },
                 {
                     "name": "back",
                     "label": "Back",
-                    "type": "a",
                     "location": "#settings",
                     "result": ""
                 }

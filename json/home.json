@@ -12,35 +12,30 @@
                 {
                     "name": "about",
                     "label": "About Retro Terminal",
-                    "type": "a",
                     "location": "#about",
                     "result": ""
                 },
                 {
                     "name": "games",
                     "label": "Games",
-                    "type": "a",
                     "location": "#games",
                     "result": ""
                 },
                 {
                     "name": "demo",
                     "label": "Demo",
-                    "type": "a",
                     "location": "#demo",
                     "result": ""
                 },
                 {
                     "name": "settings",
                     "label": "Settings",
-                    "type": "a",
                     "location": "#settings",
                     "result": ""
                 },
                 {
                     "name": "quit",
                     "label": "Quit",
-                    "type": "a",
                     "location": "#quit",
                     "result": ""
                 }

@@ -12,7 +12,6 @@
                 {
                     "name": "veryeasy",
                     "label": "Very Easy",
-                    "type": "button",
                     "action": "setDifficulty",
                     "value": "veryeasy",
                     "result": "Difficulty set to very easy..."
@@ -20,7 +19,6 @@
                 {
                     "name": "easy",
                     "label": "Easy",
-                    "type": "button",
                     "action": "setDifficulty",
                     "value": "easy",
                     "result": "Difficulty set to easy..."
@@ -28,7 +26,6 @@
                 {
                     "name": "average",
                     "label": "Average",
-                    "type": "button",
                     "action": "setDifficulty",
                     "value": "average",
                     "result": "Difficulty set to average..."
@@ -36,7 +33,6 @@
                 {
                     "name": "hard",
                     "label": "Hard",
-                    "type": "button",
                     "action": "setDifficulty",
                     "value": "hard",
                     "result": "Difficulty set to hard..."
@@ -44,7 +40,6 @@
                 {
                     "name": "veryhard",
                     "label": "Very Hard",
-                    "type": "button",
                     "action": "setDifficulty",
                     "value": "veryhard",
                     "result": "Difficulty set to very hard..."
@@ -52,7 +47,6 @@
                 {
                     "name": "back",
                     "label": "Back",
-                    "type": "a",
                     "location": "#settings",
                     "result": ""
                 }

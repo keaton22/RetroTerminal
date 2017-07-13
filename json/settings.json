@@ -12,21 +12,18 @@
                 {
                     "name": "difficulty",
                     "label": "Difficulty",
-                    "type": "a",
                     "location": "#difficulty",
                     "result": ""
                 },
                 {
                     "name": "color",
                     "label": "Color",
-                    "type": "a",
                     "location": "#color",
                     "result": ""
                 },
                 {
                     "name": "back",
                     "label": "Back",
-                    "type": "a",
                     "location": "#home",
                     "result": ""
                 }
