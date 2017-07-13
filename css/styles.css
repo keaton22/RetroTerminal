@@ -39,7 +39,7 @@ body {
     width: 640px;
     height: 480px;
     padding: 84px 120px;
-    
+
     box-shadow: 0 0 0 1px red inset;
 }
 
@@ -49,28 +49,6 @@ body {
     position: relative;
 
 /*    box-shadow: 0 0 0 1px salmon;*/
-}
-
-a {
-    text-decoration: none;
-    font-size: inherit;
-    color: inherit
-}
-
-button {
-    font-family: inherit;
-    font-size: inherit;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    text-align: left;
-    color: inherit;
-    height: 100%;
-}
-
-button:focus, a:focus {
-    outline: none;
 }
 
 #header {
@@ -125,25 +103,20 @@ button:focus, a:focus {
     width: auto;
     height: 22px;        /* prevents applied :focus from squishing the automatic height */
     line-height: 22px;
+    letter-spacing: 1px;
     margin: 2px 36px 2px 0;
     color: inherit;
 }
 
-.menu .item > * {
-    letter-spacing: 1px;
-    height: inherit;
-    line-height: inherit;
-    display: block;
-    width: 100%;
+.menu .item:hover {
+    cursor: pointer;
 }
 
-.menu .item > *:before {
+.menu .item:before {
     content: "> ";
 }
 
-.menu .item.selected > * {
-    display: block;
-    width: 100%;
+.menu .item.selected {
     color: rgba(0,0,0,.88);
     text-shadow: 0 0 2px rgba(0,0,0,.3);
 }
