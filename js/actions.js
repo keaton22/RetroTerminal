@@ -39,27 +39,24 @@ function clearResult() {
 }
 
 function menuItemSelected(elem) {       // a menu item has been pressed (via enter key)/clicked on
-    var action = elem.getAttribute("data-action") || "";
-    var name = elem.getAttribute("data-name") || "";
-    var value = elem.getAttribute("data-value") || "";
+    var name = elem.getAttribute("data-name");
+    var action = elem.getAttribute("data-action");
+    var value = elem.getAttribute("data-value");
 
-    if (action !== "") {        // if the items selected has an action
-
-        switch (action) {
-            case "playFallout":
-            case "resetMinigame":
-            case "exitToDesktop":
-            case "reboot":
-            case "shutdown":
-                ajax("php/actions.php?action=" + action, "GET", function (response) {});
-                break;
-            case "setColor":
-                setColor(name, value);
-                break;
-            case "setDifficulty":
-                setDifficulty(value);
-                break;
-        }
+    switch (action) {
+        case "playFallout":
+        case "resetMinigame":
+        case "exitToDesktop":
+        case "reboot":
+        case "shutdown":
+            ajax("php/actions.php?action=" + action, "GET", function (response) {});
+            break;
+        case "setColor":
+            setColor(name, value);
+            break;
+        case "setDifficulty":
+            setDifficulty(value);
+            break;
     }
 
     setResult(elem.getAttribute("data-result"));

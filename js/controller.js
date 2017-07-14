@@ -64,6 +64,7 @@ function writeMenu(template, meta) {
         li.className = "item";
 
         li.setAttribute("data-name", (meta.value[i].name || ""));                                     // set name (required)
+        li.setAttribute("tabindex", ("-1"));                                                          // set tabindex (allows element to be focusable)
 
         // the logic below only allows attributes that exist to be created
         meta.value[i].location && li.setAttribute("data-location", meta.value[i].location);           // set location
@@ -72,6 +73,8 @@ function writeMenu(template, meta) {
         meta.value[i].result && li.setAttribute("data-result", (meta.value[i].result));               // set result
 
         meta.value[i].action && li.addEventListener("click", function () {                            // click event for action
+            document.querySelector(".menu .item.selected").className = "item";
+            this.className += " selected";
             menuItemSelected(this);
         });
 

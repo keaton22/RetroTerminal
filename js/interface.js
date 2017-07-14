@@ -21,23 +21,22 @@ function moveCursor(direction) {
 
     if (document.querySelector(".menu")) {
 
-        var length = document.querySelectorAll(".menu > *").length;     // get number of items in menu
+        var length = document.querySelectorAll(".menu > .item").length;     // get number of items in menu
 
         if (direction == 0) {      // if key pressed is down arrow
             var current = document.querySelector(".menu .item.selected");
-            var next = document.querySelector(".menu .item.selected").nextSibling;
+            var next = current.nextSibling;
 
             if (document.querySelector(".menu .item.selected").nextSibling) {   // if not last of type
                 current.className = "item";
                 next.className += " selected";
-                next.firstChild.focus();
+                next.focus();
                 current = next;
-            }
-            else {
+            } else {
                 next = document.querySelector(".menu").firstChild;
                 current.className = "item";
                 next.className += " selected";
-                next.firstChild.focus();
+                next.focus();
                 current = next;
             }
         }
@@ -46,17 +45,17 @@ function moveCursor(direction) {
             var current = document.querySelector(".menu .item.selected");
             var next = document.querySelector(".menu .item.selected").previousSibling;
 
-            if (document.querySelector(".menu .item.selected").previousSibling) {   // if not last of type
+            if (document.querySelector(".menu .item.selected").previousSibling) {   // if not first of type
                 current.className = "item";
                 next.className += " selected";
-                next.firstChild.focus();
+                next.focus();
                 current = next;
             }
             else {
                 next = document.querySelector(".menu").lastChild;
                 current.className = "item";
                 next.className += " selected";
-                next.firstChild.focus();
+                next.focus();
                 current = next;
             }
         }

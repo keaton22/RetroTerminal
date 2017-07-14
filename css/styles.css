@@ -21,6 +21,10 @@ colors:
     -webkit-font-smoothing: none;
 }
 
+*:focus {
+    outline: none;
+}
+
 html {
     height: 100%;
     overflow: hidden;
