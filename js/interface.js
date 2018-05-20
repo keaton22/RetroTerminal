@@ -10,8 +10,12 @@ document.onkeydown = function (e) {
             break;
         case 27:                    // ESC key
         case 8:                     // Backspace key
-            e.preventDefault();
-            history.back();
+            if(document.querySelector('.note').hasAttribute('data-source') && document.body.classList.contains('template-note')) {    // if note template
+                loadPage(document.querySelector('.note').getAttribute('data-source'));                                                // use data-source
+            } else {                                                                                                                  // otherwise
+                e.preventDefault();                                                                                                   // prevent default
+                history.back();                                                                                                       // and go back
+            }
         case 9:                     // Tab key
             e.preventDefault();
         }

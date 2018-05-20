@@ -113,6 +113,15 @@ function writeMenu(meta) {
 function writeNote(meta) {
     document.querySelector("." + meta.type).innerHTML = meta.value;
     document.querySelector("." + meta.type).setAttribute("data-source", meta.source);
+
+    document.querySelector("." + meta.type).focus();
+
+    document.querySelector("." + meta.type).addEventListener("keydown", function (e) {  // keydown event listener for action
+        if (e.which == 13 || e.which == 8) {                                            // if enter key or backspace is pressed
+            loadPage(meta.source);                                                      // go to the source page
+        }
+    });
+
     console.log("injected data into " + meta.type);
 
     templatePopulated();
