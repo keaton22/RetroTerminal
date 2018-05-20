@@ -11,10 +11,10 @@
             "type": "menu",
             "value": [
                 {
-                    "name": "reset",
-                    "label": "Reset Hacking Minigame",
-                    "action": "resetMinigame",
-                    "result": "Resetting Minigame..."
+                    "name": "lock",
+                    "label": "Lock Terminal",
+                    "action": "lockTerminal",
+                    "result": "Locking Terminal..."
                 },
                 {
                     "name": "logoff",

@@ -59,12 +59,12 @@ function clearResult() {
 function menuItemSelected(elem) {       // a menu item has been pressed (via enter key)/clicked on
     var name = elem.getAttribute("data-name");
     var label = elem.getAttribute("data-label");
-    var action = elem.getAttribute("data-action");
-    var value = elem.getAttribute("data-value");
+    var action = elem.getAttribute("data-action") || '';
+    var value = elem.getAttribute("data-value") || '';
 
     switch (action) {
         case "playFallout":
-        case "resetMinigame":
+        case "lockTerminal":
         case "exitToDesktop":
         case "reboot":
         case "shutdown":
