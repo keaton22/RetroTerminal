@@ -34,7 +34,7 @@ function setColor(name, value) {
 
 function setDifficulty(label, value) {
     localStorage.setItem("difficultyLabel", label);                 // get the label (the item's name displayed in the menu)
-localStorage.setItem("difficultyValue", parseInt(value));           // get the value and convert it to an integer
+    localStorage.setItem("difficultyValue", parseInt(value));       // get the value and convert it to an integer
 
     if(parseInt(value) === 0) {
         console.log('difficulty turned off (' + value + ')');
