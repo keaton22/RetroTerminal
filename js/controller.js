@@ -66,6 +66,7 @@ function writeMenu(template, meta) {
         li.className = "item";
 
         li.setAttribute("data-name", (meta.value[i].name || ""));                                 // set name (required)
+        li.setAttribute("data-label", (meta.value[i].label || ""));                               // set label (required)
         li.setAttribute("tabindex", ("-1"));                                                      // set tabindex (allows element to be focusable)
 
         // only allow the following attributes to be created if they exist in the json

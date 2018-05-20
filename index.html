@@ -49,10 +49,11 @@
         function pageLoaded() {
             var colorName = localStorage.getItem("colorName") || "green";
             var colorValue = localStorage.getItem("colorValue") || "#1aff80";
-            var difficulty = localStorage.getItem("difficulty") || "easy";
+            var difficultyLabel = localStorage.getItem("difficultyLabel") || 'None';
+            var difficultyValue = localStorage.getItem("difficultyValue") || 0;
 
             setColor(colorName, colorValue);
-            setDifficulty(difficulty);
+            setDifficulty(difficultyLabel, difficultyValue);
         }
     </script>
 </body>

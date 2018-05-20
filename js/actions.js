@@ -32,9 +32,16 @@ function setColor(name, value) {
     console.log('%ccolor set to ' + name + " (" + value + ")", "color: " + value + "; background-image: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%); background-color: " + value + "; padding: 2px;");
 }
 
-function setDifficulty(value) {
-    localStorage.setItem("difficulty", value);
-    console.log('difficulty set to ' + value);
+function setDifficulty(label, value) {
+    localStorage.setItem("difficultyLabel", label);                 // get the label (the item's name displayed in the menu)
+localStorage.setItem("difficultyValue", parseInt(value));           // get the value and convert it to an integer
+
+    if(parseInt(value) === 0) {
+        console.log('difficulty turned off (' + value + ')');
+    } else {
+        console.log('difficulty set to ' + value + ' (' + label + ')');
+    }
+
     console.groupEnd();
 }
 
@@ -51,6 +58,7 @@ function clearResult() {
 
 function menuItemSelected(elem) {       // a menu item has been pressed (via enter key)/clicked on
     var name = elem.getAttribute("data-name");
+    var label = elem.getAttribute("data-label");
     var action = elem.getAttribute("data-action");
     var value = elem.getAttribute("data-value");
 
@@ -66,7 +74,7 @@ function menuItemSelected(elem) {       // a menu item has been pressed (via ent
             setColor(name, value);
             break;
         case "setDifficulty":
-            setDifficulty(value);
+            setDifficulty(label, value);
             break;
     }
 

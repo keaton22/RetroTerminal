@@ -11,38 +11,45 @@
             "type": "menu",
             "value": [
                 {
+                    "name": "none",
+                    "label": "None",
+                    "action": "setDifficulty",
+                    "value": "0",
+                    "result": "Difficulty turned off..."
+                },
+                {
                     "name": "veryeasy",
                     "label": "Very Easy",
                     "action": "setDifficulty",
-                    "value": "veryeasy",
+                    "value": "1",
                     "result": "Difficulty set to very easy..."
                 },
                 {
                     "name": "easy",
                     "label": "Easy",
                     "action": "setDifficulty",
-                    "value": "easy",
+                    "value": "2",
                     "result": "Difficulty set to easy..."
                 },
                 {
                     "name": "average",
                     "label": "Average",
                     "action": "setDifficulty",
-                    "value": "average",
+                    "value": "3",
                     "result": "Difficulty set to average..."
                 },
                 {
                     "name": "hard",
                     "label": "Hard",
                     "action": "setDifficulty",
-                    "value": "hard",
+                    "value": "4",
                     "result": "Difficulty set to hard..."
                 },
                 {
                     "name": "veryhard",
                     "label": "Very Hard",
                     "action": "setDifficulty",
-                    "value": "veryhard",
+                    "value": "5",
                     "result": "Difficulty set to very hard..."
                 },
                 {
