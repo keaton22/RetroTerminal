@@ -10,11 +10,15 @@ document.onkeydown = function (e) {
             break;
         case 27:                    // ESC key
         case 8:                     // Backspace key
-            if(document.querySelector('.note').hasAttribute('data-source') && document.body.classList.contains('template-note')) {    // if note template
-                loadPage(document.querySelector('.note').getAttribute('data-source'));                                                // use data-source
-            } else {                                                                                                                  // otherwise
-                e.preventDefault();                                                                                                   // prevent default
-                history.back();                                                                                                       // and go back
+            if(document.querySelector('.note').hasAttribute('data-source-location') && document.body.classList.contains('template-note')) {  // if note template
+                setResult(document.querySelector('.note').getAttribute('data-source-location'));                                                 // set source-location
+                loadPage(document.querySelector('.note').getAttribute('data-source-result'));                                                    // set source-result
+            } else if(document.querySelector('.menu .item[data-name=back]')) {                                                               // else if menu template
+                setResult(document.querySelector('.menu .item[data-name=back]').getAttribute('data-result'));                                    // set source-result
+                loadPage(document.querySelector('.menu .item[data-name=back]').getAttribute('data-location'));                                   // set source-location
+            } else {                                                                                                                         // else
+                e.preventDefault();                                                                                                              // prevent default
+                history.back();                                                                                                                  // and go back
             }
         case 9:                     // Tab key
             e.preventDefault();

@@ -124,13 +124,15 @@ function writeMenu(meta) {
 
 function writeNote(meta) {
     document.querySelector("." + meta.type).innerHTML = meta.value;
-    document.querySelector("." + meta.type).setAttribute("data-source", meta.source.location);
+    document.querySelector("." + meta.type).setAttribute("data-source-location", meta.source.location);
+    document.querySelector("." + meta.type).setAttribute("data-source-result", meta.source.result);
 
     document.querySelector("." + meta.type).focus();
 
     document.querySelector("." + meta.type).addEventListener("keydown", function (e) {  // keydown event listener for action
         if (e.which == 13 || e.which == 8) {                                            // if enter key or backspace is pressed
             loadPage(meta.source.location);                                             // go to the page's source location
+            setResult(meta.source.result);                                              // go to the page's source location
         }
     });
 
