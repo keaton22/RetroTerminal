@@ -26,7 +26,7 @@ function dataHandler(response) {
     for(i = 0; i < data.templates.length; i++) {
         var type = data.templates[i].type;
         var value = data.templates[i].value;
-        var source = data.source;
+        var source = data.source;                                       // source includes source.location and source.result
 
         meta = {"type": type, "value": value, "source": source};        // update meta information
 
@@ -56,6 +56,16 @@ function writeWelcome(meta) {
 
 // write menu
 function writeMenu(meta) {
+
+    // create the 'Back' item
+    if(meta.source.location !== 'root') {                   // if the page's source location isn't 'root' (e.g. the page is not 'home')
+        meta.value[meta.value.length] = {                   // add 'Back' as a new item to the menu
+            'name': 'back',                                 // set its name
+            'label': 'Back',                                // set its label
+            'location': meta.source.location,               // set its location
+            'result': meta.source.result                    // set its result text
+        };
+    }
 
     for(i = 0; i < meta.value.length; i++) {
 
@@ -104,6 +114,8 @@ function writeMenu(meta) {
         console.log("injected \"" + meta.value[i].label + "\" into " + meta.type);
     }
 
+
+
     document.querySelector("." + meta.type + " ." + li.className).className += " selected";
     document.querySelector("." + meta.type + " ." + li.className).focus();
 
@@ -112,13 +124,13 @@ function writeMenu(meta) {
 
 function writeNote(meta) {
     document.querySelector("." + meta.type).innerHTML = meta.value;
-    document.querySelector("." + meta.type).setAttribute("data-source", meta.source);
+    document.querySelector("." + meta.type).setAttribute("data-source", meta.source.location);
 
     document.querySelector("." + meta.type).focus();
 
     document.querySelector("." + meta.type).addEventListener("keydown", function (e) {  // keydown event listener for action
         if (e.which == 13 || e.which == 8) {                                            // if enter key or backspace is pressed
-            loadPage(meta.source);                                                      // go to the source page
+            loadPage(meta.source.location);                                             // go to the page's source location
         }
     });
 

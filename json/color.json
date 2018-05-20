@@ -1,6 +1,9 @@
 {
     "page": "color",
-    "source": "settings",
+    "source": {
+        "location": "settings",
+        "result": ""
+    },
     "templates": [
 
         {
@@ -37,12 +40,6 @@
                     "value": "#c0ffff",
                     "action": "setColor",
                     "result": "Color set to white..."
-                },
-                {
-                    "name": "back",
-                    "label": "Back",
-                    "location": "settings",
-                    "result": ""
                 }
             ]
         }

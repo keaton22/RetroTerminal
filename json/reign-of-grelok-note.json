@@ -1,6 +1,9 @@
 {
     "page": "reign-of-grelok-note",
-    "source": "games",
+    "source": {
+        "location": "games",
+        "result": ""
+    },
     "templates": [
 
         {

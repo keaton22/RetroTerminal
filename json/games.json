@@ -1,6 +1,9 @@
 {
     "page": "games",
-    "source": "home",
+    "source": {
+        "location": "home",
+        "result": ""
+    },
     "templates": [
 
         {
@@ -26,12 +29,6 @@
                     "name": "reign-of-grelok-note",
                     "label": "Reign of Grelok Note",
                     "location": "reign-of-grelok-note",
-                    "result": ""
-                },
-                {
-                    "name": "back",
-                    "label": "Back",
-                    "location": "home",
                     "result": ""
                 }
             ]

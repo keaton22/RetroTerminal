@@ -1,6 +1,9 @@
 {
     "page": "quit",
-    "source": "home",
+    "source": {
+        "location": "home",
+        "result": ""
+    },
     "templates": [
 
         {
@@ -33,12 +36,6 @@
                     "label": "Shutdown",
                     "action": "shutdown",
                     "result": "Shutting down..."
-                },
-                {
-                    "name": "back",
-                    "label": "Back",
-                    "location": "home",
-                    "result": ""
                 }
             ]
         }

@@ -1,6 +1,9 @@
 {
     "page": "difficulty",
-    "source": "settings",
+    "source": {
+        "location": "settings",
+        "result": ""
+    },
     "templates": [
 
         {
@@ -51,12 +54,6 @@
                     "action": "setDifficulty",
                     "value": "5",
                     "result": "Difficulty set to very hard..."
-                },
-                {
-                    "name": "back",
-                    "label": "Back",
-                    "location": "settings",
-                    "result": ""
                 }
             ]
         }

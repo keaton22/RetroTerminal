@@ -1,6 +1,9 @@
 {
     "page": "reign-of-grelok-menu",
-    "source": "games",
+    "source": {
+        "location": "games",
+        "result": ""
+    },
     "templates": [
 
         {
@@ -38,12 +41,6 @@
                     "name": "inventory",
                     "label": "Inventory",
                     "action": "",
-                    "result": ""
-                },
-                {
-                    "name": "back",
-                    "label": "Back",
-                    "location": "games",
                     "result": ""
                 }
             ]

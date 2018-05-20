@@ -1,6 +1,9 @@
 {
     "page": "home",
-    "source": "root",
+    "source": {
+        "location": "root",
+        "result": ""
+    },
     "templates": [
 
         {

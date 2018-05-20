@@ -1,6 +1,9 @@
 {
     "page": "demo",
-    "source": "home",
+    "source": {
+        "location": "home",
+        "result": ""
+    },
     "templates": [
 
         {
@@ -20,12 +23,6 @@
                     "name": "note-template",
                     "label": "Note Template",
                     "location": "note-demo",
-                    "result": ""
-                },
-                {
-                    "name": "back",
-                    "label": "Back",
-                    "location": "home",
                     "result": ""
                 }
             ]

@@ -1,6 +1,9 @@
 {
     "page": "menu-demo",
-    "source": "demo",
+    "source": {
+        "location": "demo",
+        "result": ""
+    },
     "templates": [
 
         {
@@ -21,12 +24,6 @@
                     "label": "Some items link to locations",
                     "location": "note-demo",
                     "result": "This is result text means the link worked!"
-                },
-                {
-                    "name": "back",
-                    "label": "Back",
-                    "location": "demo",
-                    "result": ""
                 }
             ]
         }

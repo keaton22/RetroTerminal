@@ -1,6 +1,9 @@
 {
     "page": "note-demo",
-    "source": "demo",
+    "source": {
+        "location": "demo",
+        "result": ""
+    },
     "templates": [
 
         {

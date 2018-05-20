@@ -1,6 +1,9 @@
 {
     "page": "settings",
-    "source": "home",
+    "source": {
+        "location": "home",
+        "result": ""
+    },
     "templates": [
 
         {
@@ -20,12 +23,6 @@
                     "name": "color",
                     "label": "Color",
                     "location": "color",
-                    "result": ""
-                },
-                {
-                    "name": "back",
-                    "label": "Back",
-                    "location": "home",
                     "result": ""
                 }
             ]
