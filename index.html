@@ -17,7 +17,9 @@
             </div>
 
             <div id="main">
-
+                <p class="welcome"></p>
+                <ul class="menu"></ul>
+                <p class="note"></p>
             </div>
 
             <div id="footer">
@@ -43,7 +45,6 @@
         // the page URL excluding everything from 'index.html' onward
         var baseURL = window.location.href.replace(pageNameURL, '');
 
-        //hashChange();       // set page to #home by default
         loadPage();
 
         function pageLoaded() {

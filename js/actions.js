@@ -23,12 +23,12 @@ function setColor(name, value) {
             document.body.classList.remove(document.body.classList[i]);     // remove that css class
         }
     }
-    document.body.classList.add('color-' + name);               // add a 'color-' class for each currently in-use template
+    document.body.classList.add('color-' + name);                           // add a 'color-' class for each currently in-use template
 
     document.querySelector('STYLE').innerHTML = '<style>html{}body{color:' + value + ' !important;background-color:' + value + ';}.welcome{border-bottom-color:' + value + ';}.menu .item.selected{background-color:' + value + ';}</style>';
     localStorage.setItem("colorName", name);
     localStorage.setItem("colorValue", value);
-    
+
     console.log('%ccolor set to ' + name + " (" + value + ")", "color: " + value + "; background-image: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%); background-color: " + value + "; padding: 2px;");
 }
 

@@ -84,22 +84,30 @@ body {
 }
 
 .welcome {
+    display: none;             /* display is set by .template-* rule */
     font-size: inherit;
     letter-spacing: 1px;
     line-height: 12px;
-    display: inline-block;
     margin: 0;
     padding-bottom: 6px;
     border-bottom-style: solid;
     border-bottom-width: 1px;
 }
 
+.template-welcome .welcome {   /* actual display value is set here */
+    display: inline-block;
+}
+
 .menu {
-    display: block;
+    display: none;             /* display is set by .template-* rule */
     width: 100%;
     margin: 2px 0;
     padding: 0;
     overflow: hidden;
+}
+
+.template-menu .menu {
+    display: block;            /* actual display value is set here */
 }
 
 .menu .item {
@@ -126,10 +134,15 @@ body {
 }
 
 .note {
+    display: none;             /* display is set by .template-* rule */
     margin-top: 8px;
     letter-spacing: 1px;
     line-height: 12px;
     word-spacing: 0px;
+}
+
+.template-note .note {
+    display: block;            /* actual display value is set here */
 }
 
 #footer {

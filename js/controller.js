@@ -1,8 +1,8 @@
 var data;                           // the json
 var template;                       // the html
 var meta = {};                      // allow passing of metadata between functions
-var requiredTemplates;              // each page (json) has templates
-var templatesLoaded = 0;            // keep a count of those templates so we know when the page is complete
+var numRequiredTemplates;           // each page (json) has templates
+var numTemplatesPopulated = 0;      // keep a count of those templates so we know when the page is complete
 
 // make an ajax call
 function ajax(file, method, callback, meta) {
@@ -19,6 +19,8 @@ function ajax(file, method, callback, meta) {
 // handle data (json)
 function dataHandler(response) {
     data = JSON.parse(response.responseText);
+    numRequiredTemplates = data.templates.length;
+
     console.groupCollapsed("got data from " + data.page + ".json");
 
     for(i = 0; i < data.templates.length; i++) {
@@ -26,38 +28,34 @@ function dataHandler(response) {
         var value = data.templates[i].value;
         var source = data.source;
 
-        // run "ajax" function to get correct template, replaces switch statement
-        ajax(baseURL + "/html/_" + type + ".html", "GET", templateHandler, {"type": type, "value": value, "source": source});
-        console.log("page has a " + type);
+        meta = {"type": type, "value": value, "source": source};        // update meta information
+
+        console.groupCollapsed("page has a " + type);
+
+        templateHandler(meta)
     }
-    requiredTemplates = data.templates.length;
 }
 
 // handle template (html)
-function templateHandler(response, meta) {
-    template = response.responseText;
-    console.groupCollapsed("got template _" + meta.type + ".html");
-
+function templateHandler(meta) {
     document.body.classList.add('template-' + meta.type);               // add a 'template-' class for each currently in-use template
 
     // run appropriate "write" function depending on template type ( writeWelcome(), writeMenu(), or writeNote() )
-    eval("write" + meta.type.charAt(0).toUpperCase() + meta.type.slice(1) + "(template, meta);");
+    eval("write" + meta.type.charAt(0).toUpperCase() + meta.type.slice(1) + "(meta);");
 
-    console.log("injected _" + meta.type + ".html into page");
-    templateLoaded();
     console.groupEnd();
 }
 
 // write welcome
-function writeWelcome(template, meta) {
-    document.querySelector("#main").innerHTML += template;
+function writeWelcome(meta) {
     document.querySelector("." + meta.type).innerHTML = meta.value;
     console.log("injected data into " + meta.type);
+
+    templatePopulated();
 }
 
 // write menu
-function writeMenu(template, meta) {
-    document.querySelector("#main").innerHTML += template;
+function writeMenu(meta) {
 
     for(i = 0; i < meta.value.length; i++) {
 
@@ -108,22 +106,25 @@ function writeMenu(template, meta) {
 
     document.querySelector("." + meta.type + " ." + li.className).className += " selected";
     document.querySelector("." + meta.type + " ." + li.className).focus();
+
+    templatePopulated();
 }
 
-function writeNote(template, meta) {
-    document.querySelector("#main").innerHTML += template;
+function writeNote(meta) {
     document.querySelector("." + meta.type).innerHTML = meta.value;
     document.querySelector("." + meta.type).setAttribute("data-source", meta.source);
     console.log("injected data into " + meta.type);
+
+    templatePopulated();
 }
 
-function templateLoaded() {
-    templatesLoaded++;
+function templatePopulated() {
+    numTemplatesPopulated++;
 
-    if(templatesLoaded === requiredTemplates) {
-        templatesLoaded = 0;
+    if(numTemplatesPopulated === numRequiredTemplates) {
+        numTemplatesPopulated = 0;
         console.groupEnd();
-        console.info('all templates loaded successfully!');
+        console.info('all data loaded successfully!');
         console.groupEnd();
         pageLoaded();
     }

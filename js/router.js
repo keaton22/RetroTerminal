@@ -18,29 +18,29 @@ function loadPage(page, popstateUsed) {
 
     ajax(baseURL + "/json/" + page + ".json", "GET", dataHandler);      // ask the server for the new page's [JSON] data
 
-    console.info("%new page loaded", "background: rgba(0,0,255,0.2); color: rgba(0,0,255,1); padding: 2px;");
+    console.info("%cnew page loaded", "background: rgba(0,0,255,0.2); color: rgba(0,0,255,1); padding: 2px;");
     console.groupEnd();
 }
 
 function cleanPage() {
-    var main = document.querySelector("#main");
+    var welcome = document.querySelector(".welcome");
+    var menu = document.querySelector(".menu");
+    var note = document.querySelector(".note");
 
-    while (main.hasChildNodes()) {
-        main.removeChild(main.lastChild);
+    while (welcome.hasChildNodes()) {                       // clean the welcome template
+        welcome.removeChild(welcome.lastChild);
     }
 
-    // remove all css classes from <body> that start with 'template-' or 'color-'
-    var matchedTemplateClass = new RegExp('template-(.*)+', 'g');           // declare regex variable for 'template-'
-    var matchedColorClass = new RegExp('color-(.*)+', 'g');                 // declare regex variable for 'color-'
-
-    for(var i = 0; i < document.body.classList.length; i++) {               // iterate through all css classes applied to the <body>
-        if(matchedTemplateClass.test(document.body.classList[i])) {         // if the current css class starts with 'template-'
-            document.body.classList.remove(document.body.classList[i]);     // remove that css class
-        }
-        if(matchedColorClass.test(document.body.classList[i])) {            // if the current css class starts with 'color-'
-            document.body.classList.remove(document.body.classList[i]);     // remove that css class
-        }
+    while (menu.hasChildNodes()) {                          // clean the menu template
+        menu.removeChild(menu.lastChild);
     }
+
+    while (note.hasChildNodes()) {                          // clean the note template
+        note.removeChild(note.lastChild);
+    }
+
+    // remove all css classes from <body> (ideally just ones that start with 'template-' or 'color-', but I couldn't get that to work)
+    document.body.className = '';
 
     console.groupCollapsed('changing pages...');
     console.info("%cold page cleaned", "background: rgba(0,0,255,0.2); color: rgba(0,0,255,1); padding: 2px;");
