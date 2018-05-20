@@ -1,8 +1,8 @@
-var data;
-var template;
-var meta = new Object();
-var requiredTemplates;
-var templatesLoaded = 0;
+var data;                           // the json
+var template;                       // the html
+var meta = {};                      // allow passing of metadata between functions
+var requiredTemplates;              // each page (json) has templates
+var templatesLoaded = 0;            // keep a count of those templates so we know when the page is complete
 
 // make an ajax call
 function ajax(file, method, callback, meta) {
@@ -16,7 +16,7 @@ function ajax(file, method, callback, meta) {
     xhr.send();
 }
 
-// handle data
+// handle data (json)
 function dataHandler(response) {
     data = JSON.parse(response.responseText);
     console.groupCollapsed("got data from " + data.page + ".json");
@@ -27,20 +27,22 @@ function dataHandler(response) {
         var source = data.source;
 
         // run "ajax" function to get correct template, replaces switch statement
-        ajax("html/_" + type +".html", "GET", templateHandler, {"type": type, "value": value, "source": source});
+        ajax(baseURL + "/html/_" + type + ".html", "GET", templateHandler, {"type": type, "value": value, "source": source});
         console.log("page has a " + type);
     }
     requiredTemplates = data.templates.length;
 }
 
-// handle template
+// handle template (html)
 function templateHandler(response, meta) {
     template = response.responseText;
     console.groupCollapsed("got template _" + meta.type + ".html");
 
-    // run correct "write" function, replaces switch statement
+    document.body.classList.add('template-' + meta.type);               // add a 'template-' class for each currently in-use template
+
+    // run appropriate "write" function depending on template type ( writeWelcome(), writeMenu(), or writeNote() )
     eval("write" + meta.type.charAt(0).toUpperCase() + meta.type.slice(1) + "(template, meta);");
-    document.body.className += " template-" + meta.type;
+
     console.log("injected _" + meta.type + ".html into page");
     templateLoaded();
     console.groupEnd();
@@ -63,23 +65,33 @@ function writeMenu(template, meta) {
         var text = document.createTextNode(meta.value[i].label);
         li.className = "item";
 
-        li.setAttribute("data-name", (meta.value[i].name || ""));                                     // set name (required)
-        li.setAttribute("tabindex", ("-1"));                                                          // set tabindex (allows element to be focusable)
+        li.setAttribute("data-name", (meta.value[i].name || ""));                                 // set name (required)
+        li.setAttribute("tabindex", ("-1"));                                                      // set tabindex (allows element to be focusable)
 
-        // the logic below only allows attributes that exist to be created
-        meta.value[i].location && li.setAttribute("data-location", meta.value[i].location);           // set location
-        meta.value[i].action && li.setAttribute("data-action", (meta.value[i].action));               // set action
-        meta.value[i].value && li.setAttribute("data-value", (meta.value[i].value));                  // set value
-        meta.value[i].result && li.setAttribute("data-result", (meta.value[i].result));               // set result
+        // only allow the following attributes to be created if they exist in the json
+        meta.value[i].location && li.setAttribute("data-location", meta.value[i].location);       // set location (like [href])
+        meta.value[i].action && li.setAttribute("data-action", (meta.value[i].action));           // set action (like [onclick])
+        meta.value[i].value && li.setAttribute("data-value", (meta.value[i].value));              // set value (if choosing between things)
+        meta.value[i].result && li.setAttribute("data-result", (meta.value[i].result));           // set result (the feedback message)
 
-        meta.value[i].action && li.addEventListener("click", function () {                            // click event for action
+        meta.value[i].location && li.addEventListener("click", function () {                      // click event for location
+            loadPage(this.getAttribute("data-location"));
+        });
+
+        meta.value[i].location && li.addEventListener("keydown", function (e) {                   // keydown event for action
+            if (e.which == 13) {                                                                  // if enter key is pressed
+                loadPage(this.getAttribute("data-location"));
+            }
+        });
+
+        meta.value[i].action && li.addEventListener("click", function () {                        // click event for action
             document.querySelector(".menu .item.selected").className = "item";
             this.className += " selected";
             menuItemSelected(this);
         });
 
-        meta.value[i].action && li.addEventListener("keydown", function (e) {                         // keydown event for action
-            if (e.which == 13) {                                                                      // if enter key is pressed
+        meta.value[i].action && li.addEventListener("keydown", function (e) {                     // keydown event for action
+            if (e.which == 13) {                                                                  // if enter key is pressed
                 menuItemSelected(this);
             }
         });

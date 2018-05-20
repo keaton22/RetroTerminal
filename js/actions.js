@@ -1,30 +1,41 @@
-//function setColor(name, value) {
-    //document.querySelector("body").className = name;
-    //document.querySelector("body").style.color = value;
-    //document.querySelector("body").style.backgroundColor = value;
-    //document.querySelector(".welcome").style.borderBottomColor = value;
-    //document.querySelector(".menu .item.selected").style.backgroundColor = value;
+/*function setColor(name, value) {
+    document.querySelector("body").className = name;
+    document.querySelector("body").style.color = value;
+    document.querySelector("body").style.backgroundColor = value;
+    document.querySelector(".welcome").style.borderBottomColor = value;
+    document.querySelector(".menu .item.selected").style.backgroundColor = value;
 
-    //document.querySelectorAll("li").style.color = value;
+    document.querySelectorAll("li").style.color = value;
 
-    //localStorage.setItem("colorName", name);
-    //localStorage.setItem("colorValue", value);
-    //console.log('%ccolor set to ' + name + " (" + value + ")", "color: " + value + "; background-image: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%); background-color: " + value + "; padding: 2px;");
-    //document.documentElement.style.setProperty('--color', color);
-//}
+    localStorage.setItem("colorName", name);
+    localStorage.setItem("colorValue", value);
+    console.log('%ccolor set to ' + name + " (" + value + ")", "color: " + value + "; background-image: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%); background-color: " + value + "; padding: 2px;");
+    document.documentElement.style.setProperty('--color', color);
+}*/
 
 function setColor(name, value) {
-    document.body.className += " color-" + name;
+
+    // remove all css classes from <body> that start with 'color-' and add css class for the new color being set
+    var matchedColorClass = new RegExp('color-(.*)+', 'g');                 // declare regex variable for 'color-'
+
+    for(var i = 0; i < document.body.classList.length; i++) {               // iterate through all css classes applied to the <body>
+        if(matchedColorClass.test(document.body.classList[i])) {            // if the current css class starts with 'color-'
+            document.body.classList.remove(document.body.classList[i]);     // remove that css class
+        }
+    }
+    document.body.classList.add('color-' + name);               // add a 'color-' class for each currently in-use template
+
     document.querySelector('STYLE').innerHTML = '<style>html{}body{color:' + value + ' !important;background-color:' + value + ';}.welcome{border-bottom-color:' + value + ';}.menu .item.selected{background-color:' + value + ';}</style>';
     localStorage.setItem("colorName", name);
     localStorage.setItem("colorValue", value);
-    console.groupEnd();
+    
     console.log('%ccolor set to ' + name + " (" + value + ")", "color: " + value + "; background-image: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%); background-color: " + value + "; padding: 2px;");
 }
 
 function setDifficulty(value) {
     localStorage.setItem("difficulty", value);
-    console.log('difficulty set to ' + value)
+    console.log('difficulty set to ' + value);
+    console.groupEnd();
 }
 
 function setResult(status) {

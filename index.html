@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Retro Terminal</title>
+    <title>RetroTerminal</title>
     <link rel="stylesheet" href="css/styles.css">
     <style></style>
 </head>
-<body onhashchange="hashChange()">
+<body>
     <div id="wrapper">
         <div id="content">
 
@@ -31,13 +31,20 @@
         </div>
     </div>
 
-    <script src="js/controller.js"></script>
     <script src="js/router.js"></script>
-    <script src="js/actions.js"></script>
+    <script src="js/controller.js"></script>
     <script src="js/interface.js"></script>
+    <script src="js/actions.js"></script>
 
     <script>
-        hashChange();   // set page to #home by default
+        // a regex matcher for everything from 'index.html' onward
+        var pageNameURL = new RegExp('\/index\.html.*');
+
+        // the page URL excluding everything from 'index.html' onward
+        var baseURL = window.location.href.replace(pageNameURL, '');
+
+        //hashChange();       // set page to #home by default
+        loadPage();
 
         function pageLoaded() {
             var colorName = localStorage.getItem("colorName") || "green";

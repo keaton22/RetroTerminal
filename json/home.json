@@ -1,5 +1,6 @@
 {
     "page": "home",
+    "source": "null",
     "templates": [
 
         {
@@ -12,31 +13,31 @@
                 {
                     "name": "about",
                     "label": "About Retro Terminal",
-                    "location": "#about",
+                    "location": "about",
                     "result": ""
                 },
                 {
                     "name": "games",
                     "label": "Games",
-                    "location": "#games",
+                    "location": "games",
                     "result": ""
                 },
                 {
                     "name": "demo",
                     "label": "Demo",
-                    "location": "#demo",
+                    "location": "demo",
                     "result": ""
                 },
                 {
                     "name": "settings",
                     "label": "Settings",
-                    "location": "#settings",
+                    "location": "settings",
                     "result": ""
                 },
                 {
                     "name": "quit",
                     "label": "Quit",
-                    "location": "#quit",
+                    "location": "quit",
                     "result": ""
                 }
             ]

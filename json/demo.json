@@ -1,5 +1,6 @@
 {
     "page": "demo",
+    "source": "home",
     "templates": [
 
         {
@@ -12,19 +13,19 @@
                 {
                     "name": "menu-template",
                     "label": "Menu Template",
-                    "location": "#menu-demo",
+                    "location": "menu-demo",
                     "result": ""
                 },
                 {
                     "name": "note-template",
                     "label": "Note Template",
-                    "location": "#note-demo",
+                    "location": "note-demo",
                     "result": ""
                 },
                 {
                     "name": "back",
                     "label": "Back",
-                    "location": "#home",
+                    "location": "home",
                     "result": ""
                 }
             ]

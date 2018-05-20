@@ -1,5 +1,6 @@
 {
     "page": "difficulty",
+    "source": "settings",
     "templates": [
 
         {
@@ -47,7 +48,7 @@
                 {
                     "name": "back",
                     "label": "Back",
-                    "location": "#settings",
+                    "location": "settings",
                     "result": ""
                 }
             ]

@@ -1,5 +1,6 @@
 {
     "page": "quit",
+    "source": "home",
     "templates": [
 
         {
@@ -36,7 +37,7 @@
                 {
                     "name": "back",
                     "label": "Back",
-                    "location": "#home",
+                    "location": "home",
                     "result": ""
                 }
             ]

@@ -1,5 +1,6 @@
 {
     "page": "games",
+    "source": "home",
     "templates": [
 
         {
@@ -18,19 +19,19 @@
                 {
                     "name": "reign-of-grelok-menu",
                     "label": "Reign of Grelok Menu",
-                    "location": "#reign-of-grelok-menu",
+                    "location": "reign-of-grelok-menu",
                     "result": ""
                 },
                 {
                     "name": "reign-of-grelok-note",
                     "label": "Reign of Grelok Note",
-                    "location": "#reign-of-grelok-note",
+                    "location": "reign-of-grelok-note",
                     "result": ""
                 },
                 {
                     "name": "back",
                     "label": "Back",
-                    "location": "#home",
+                    "location": "home",
                     "result": ""
                 }
             ]

@@ -1,5 +1,6 @@
 {
     "page": "menu-demo",
+    "source": "demo",
     "templates": [
 
         {
@@ -18,13 +19,13 @@
                 {
                     "name": "menu-item-link",
                     "label": "Item (Link)",
-                    "location": "#note-demo",
+                    "location": "note-demo",
                     "result": "This is result text from a link. Links change pages..."
                 },
                 {
                     "name": "back",
                     "label": "Back",
-                    "location": "#demo",
+                    "location": "demo",
                     "result": ""
                 }
             ]

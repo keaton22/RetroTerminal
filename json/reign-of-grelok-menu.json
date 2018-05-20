@@ -1,5 +1,6 @@
 {
     "page": "reign-of-grelok-menu",
+    "source": "games",
     "templates": [
 
         {
@@ -42,7 +43,7 @@
                 {
                     "name": "back",
                     "label": "Back",
-                    "location": "#games",
+                    "location": "games",
                     "result": ""
                 }
             ]

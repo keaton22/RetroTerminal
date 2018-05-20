@@ -1,5 +1,5 @@
 document.onkeydown = function (e) {
-    //console.info("Key pressed: " + e.which);
+    //console.info("Key pressed: " + e.which);              // debug which key was pressed
 
     switch (e.which || e.keyCode) {
         case 38:                    // up arrow
@@ -10,8 +10,8 @@ document.onkeydown = function (e) {
             break;
         case 27:                    // ESC key
         case 8:                     // Backspace key
-            window.history.back();
-            hashChange();
+            e.preventDefault();
+            history.back();
         case 9:                     // Tab key
             e.preventDefault();
         }
@@ -61,7 +61,3 @@ function moveCursor(direction) {
         }
     }
 }
-
-//document.onkeydown = function(event) {
-//    console.log(event);
-//}

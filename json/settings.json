@@ -1,5 +1,6 @@
 {
     "page": "settings",
+    "source": "home",
     "templates": [
 
         {
@@ -12,19 +13,19 @@
                 {
                     "name": "difficulty",
                     "label": "Difficulty",
-                    "location": "#difficulty",
+                    "location": "difficulty",
                     "result": ""
                 },
                 {
                     "name": "color",
                     "label": "Color",
-                    "location": "#color",
+                    "location": "color",
                     "result": ""
                 },
                 {
                     "name": "back",
                     "label": "Back",
-                    "location": "#home",
+                    "location": "home",
                     "result": ""
                 }
             ]
