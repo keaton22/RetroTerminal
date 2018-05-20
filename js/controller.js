@@ -85,15 +85,19 @@ function writeMenu(template, meta) {
             }
         });
 
-        meta.value[i].action && li.addEventListener("click", function () {                        // click event for action
-            document.querySelector(".menu .item.selected").className = "item";
-            this.className += " selected";
-            menuItemSelected(this);
+        // click event listener for menu items with an action or location
+        (meta.value[i].action || meta.value[i].location) && li.addEventListener("click", function () {
+            if(document.querySelector(".menu .item.selected")) {                        // if there's already a selected menu item
+                document.querySelector(".menu .item.selected").className = "item";      // deselect it
+            }
+            this.className += " selected";                                              // and select the current menu item
+            menuItemSelected(this);                                                     // do the thing the menu item says it does
         });
 
-        meta.value[i].action && li.addEventListener("keydown", function (e) {                     // keydown event for action
-            if (e.which == 13) {                                                                  // if enter key is pressed
-                menuItemSelected(this);
+        // keydown event listener for menu items with an action or location
+        (meta.value[i].action || meta.value[i].location) && li.addEventListener("keydown", function (e) {
+            if (e.which == 13) {                                                        // if enter key is pressed
+                menuItemSelected(this);                                                 // do the thing the menu item says it does
             }
         });
 

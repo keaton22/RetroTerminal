@@ -12,15 +12,15 @@
             "value": [
                 {
                     "name": "menu-item-button",
-                    "label": "Item (Button)",
+                    "label": "Some items trigger actions",
                     "action": "setDemoMenuItemButton",
-                    "result": "This is result text from a button. Buttons trigger actions..."
+                    "result": "This result text means the action worked!"
                 },
                 {
                     "name": "menu-item-link",
-                    "label": "Item (Link)",
+                    "label": "Some items link to locations",
                     "location": "note-demo",
-                    "result": "This is result text from a link. Links change pages..."
+                    "result": "This is result text means the link worked!"
                 },
                 {
                     "name": "back",
