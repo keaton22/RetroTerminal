@@ -11,8 +11,8 @@ document.onkeydown = function (e) {
         case 27:                    // ESC key
         case 8:                     // Backspace key
             if(document.querySelector('.note').hasAttribute('data-source-location') && document.body.classList.contains('template-note')) {  // if note template
-                setResult(document.querySelector('.note').getAttribute('data-source-location'));                                                 // set source-location
-                loadPage(document.querySelector('.note').getAttribute('data-source-result'));                                                    // set source-result
+                setResult(document.querySelector('.note').getAttribute('data-source-result'));                                                 // set source-location
+                loadPage(document.querySelector('.note').getAttribute('data-source-location'));                                                // set source-result
             } else if(document.querySelector('.menu .item[data-name=back]')) {                                                               // else if menu template
                 setResult(document.querySelector('.menu .item[data-name=back]').getAttribute('data-result'));                                    // set source-result
                 loadPage(document.querySelector('.menu .item[data-name=back]').getAttribute('data-location'));                                   // set source-location
@@ -20,8 +20,17 @@ document.onkeydown = function (e) {
                 e.preventDefault();                                                                                                              // prevent default
                 history.back();                                                                                                                  // and go back
             }
+            break;
+        case 13:                    // Enter key
+        case 32:                    // Spacebar
+            if(document.querySelector('.note').hasAttribute('data-source-location') && document.body.classList.contains('template-note')) {  // if note template
+                setResult(document.querySelector('.note').getAttribute('data-source-result'));                                                 // set source-location
+                loadPage(document.querySelector('.note').getAttribute('data-source-location'));                                                // set source-result
+            }
+            break;
         case 9:                     // Tab key
             e.preventDefault();
+            break;
         }
 }
 

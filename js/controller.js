@@ -88,7 +88,7 @@ function writeMenu(meta) {
         });
 
         meta.value[i].location && li.addEventListener("keydown", function (e) {                   // keydown event for action
-            if (e.which == 13) {                                                                  // if enter key is pressed
+            if (e.which === 13 || e.which === 32) {                                               // if enter key is pressed
                 loadPage(this.getAttribute("data-location"));
             }
         });
@@ -104,7 +104,7 @@ function writeMenu(meta) {
 
         // keydown event listener for menu items with an action or location
         (meta.value[i].action || meta.value[i].location) && li.addEventListener("keydown", function (e) {
-            if (e.which == 13) {                                                        // if enter key is pressed
+            if (e.which === 13 || e.which === 32) {                                     // if enter key or spacebar is pressed
                 menuItemSelected(this);                                                 // do the thing the menu item says it does
             }
         });
@@ -130,7 +130,7 @@ function writeNote(meta) {
     document.querySelector("." + meta.type).focus();
 
     document.querySelector("." + meta.type).addEventListener("keydown", function (e) {  // keydown event listener for action
-        if (e.which == 13 || e.which == 8) {                                            // if enter key or backspace is pressed
+        if (e.which === 13 || e.which === 8 || e.which === 32) {                        // if enter key, backspace, or spacebar is pressed
             loadPage(meta.source.location);                                             // go to the page's source location
             setResult(meta.source.result);                                              // go to the page's source location
         }
