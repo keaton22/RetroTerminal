@@ -30,6 +30,7 @@ html {
     overflow: hidden;
     font-family: 'fsex300';
     font-size: 16px;
+    user-select: none;
 }
 
 body {
