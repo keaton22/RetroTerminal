@@ -155,3 +155,32 @@ body {
 #footer .result {
     font-size: inherit;
 }
+
+#footer .block {
+    animation: blink 835ms linear infinite;
+}
+
+#footer .block:before {
+    content: '';
+    display: inline-block;
+    height: 11px;
+    width: 11px;
+    line-height: 17px;
+    position: relative;
+    bottom: -1px;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    51% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}

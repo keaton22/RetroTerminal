@@ -25,7 +25,7 @@ function setColor(name, value) {
     }
     document.body.classList.add('color-' + name);                           // add a 'color-' class for each currently in-use template
 
-    document.querySelector('STYLE').innerHTML = '<style>html{}body{color:' + value + ' !important;background-color:' + value + ';}.welcome{border-bottom-color:' + value + ';}.menu .item.selected{background-color:' + value + ';}</style>';
+    document.querySelector('STYLE').innerHTML = '<style>html{}body{color:' + value + ' !important;background-color:' + value + ';}.welcome{border-bottom-color:' + value + ';}.menu .item.selected{background-color:' + value + ';}#footer .block:before{background-color:' + value + ';}</style>';
     localStorage.setItem("colorName", name);
     localStorage.setItem("colorValue", value);
 
