@@ -12,6 +12,7 @@
     console.log('%ccolor set to ' + name + " (" + value + ")", "color: " + value + "; background-image: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%); background-color: " + value + "; padding: 2px;");
     document.documentElement.style.setProperty('--color', color);
 }*/
+var setResultTimeout;
 
 function setColor(name, value) {
 
@@ -46,10 +47,14 @@ function setDifficulty(label, value) {
 }
 
 function setResult(status) {
-    document.querySelector(".result .status").innerHTML = status;
-    window.setTimeout(function () {
-        clearResult();
-    }, 5000);
+
+    if(status) {
+        document.querySelector(".result .status").innerHTML = status;
+        clearTimeout(setResultTimeout);
+        setResultTimeout = setTimeout(function () {
+            clearResult();
+        }, 5000);
+    }
 }
 
 function clearResult() {
