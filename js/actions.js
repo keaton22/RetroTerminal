@@ -1,17 +1,3 @@
-/*function setColor(name, value) {
-    document.querySelector("body").className = name;
-    document.querySelector("body").style.color = value;
-    document.querySelector("body").style.backgroundColor = value;
-    document.querySelector(".welcome").style.borderBottomColor = value;
-    document.querySelector(".menu .item.selected").style.backgroundColor = value;
-
-    document.querySelectorAll("li").style.color = value;
-
-    localStorage.setItem("colorName", name);
-    localStorage.setItem("colorValue", value);
-    console.log('%ccolor set to ' + name + " (" + value + ")", "color: " + value + "; background-image: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%); background-color: " + value + "; padding: 2px;");
-    document.documentElement.style.setProperty('--color', color);
-}*/
 var setResultTimeout;
 
 function setColor(name, value) {
@@ -26,7 +12,8 @@ function setColor(name, value) {
     }
     document.body.classList.add('color-' + name);                           // add a 'color-' class for each currently in-use template
 
-    document.querySelector('STYLE').innerHTML = '<style>html{}body{color:' + value + ' !important;background-color:' + value + ';}.welcome{border-bottom-color:' + value + ';}.menu .item.selected{background-color:' + value + ';}#footer .block:before{background-color:' + value + ';}</style>';
+    document.querySelector('STYLE').innerHTML = 'html { color: ' + value + ' !important; }';        // set color
+
     localStorage.setItem("colorName", name);
     localStorage.setItem("colorValue", value);
 

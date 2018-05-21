@@ -90,6 +90,7 @@ body {
     line-height: 12px;
     margin: 0;
     padding-bottom: 6px;
+    border-bottom-color: currentColor;
     border-bottom-style: solid;
     border-bottom-width: 1px;
 }
@@ -117,7 +118,6 @@ body {
     line-height: 22px;
     letter-spacing: 1px;
     margin: 2px 36px 2px 0;
-    color: inherit;
 }
 
 .menu .item:hover {
@@ -129,6 +129,19 @@ body {
 }
 
 .menu .item.selected {
+    background-color: currentColor;
+    position: relative;
+}
+
+.menu .item.selected:before {
+    color: rgba(0,0,0,.88);
+    text-shadow: 0 0 2px rgba(0,0,0,.3);
+}
+
+.menu .item.selected:after {
+    content: attr(data-label);
+    position: absolute;
+    left: 18px;
     color: rgba(0,0,0,.88);
     text-shadow: 0 0 2px rgba(0,0,0,.3);
 }
@@ -165,6 +178,7 @@ body {
     display: inline-block;
     height: 11px;
     width: 11px;
+    background-color: currentColor;
     line-height: 17px;
     position: relative;
     bottom: -1px;
