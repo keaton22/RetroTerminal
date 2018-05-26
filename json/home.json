@@ -8,7 +8,7 @@
 
         {
             "type": "welcome",
-            "value": "You've hacked Retro Terminal! Explore the options below to learn more."
+            "value": "Welcome to Retro Terminal! Explore the options below to learn more."
         },
         {
             "type": "menu",
