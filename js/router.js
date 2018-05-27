@@ -1,9 +1,18 @@
-// listen for the 'popstate'
+var pageNameURL = new RegExp('\/index\.html.*');                    // a regex matcher for everything from 'index.html' onward
+var baseURL = window.location.href.replace(pageNameURL, '');        // the page URL excluding everything from 'index.html' onward
+
+
+
+// LISTEN FOR THE 'POPSTATE'
+
 window.addEventListener('popstate', function(e) {
     loadPage(e.state, true);
 });
 
-// call this function anytime the page changes
+
+
+// LOAD PAGE (WHEN A NEW PAGE IS REQUESTED)
+
 function loadPage(page, popstateUsed) {
     page = page || 'home';                      // set the default page to "home" if no other page is set
     popstateUsed = popstateUsed || false;       // set the default value for
@@ -21,6 +30,10 @@ function loadPage(page, popstateUsed) {
     console.info("%cnew page loaded", "background: rgba(0,0,255,0.2); color: rgba(0,0,255,1); padding: 2px;");
     console.groupEnd();
 }
+
+
+
+// CLEAN PAGE (REMOVE THE CONTENTS OF THE OLD PAGE)
 
 function cleanPage() {
     var welcome = document.querySelector(".welcome");

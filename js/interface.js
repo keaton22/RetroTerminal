@@ -1,38 +1,75 @@
+
+// IF ANY KEY IS PRESSED
+
 document.onkeydown = function (e) {
-    //console.info("Key pressed: " + e.which);              // debug which key was pressed
 
     switch (e.which || e.keyCode) {
-        case 38:                    // up arrow
+
+        case 38:                                                                                                        // up arrow
+
             moveCursor(1);
             break;
-        case 40:                    // down arrow
+
+        case 40:                                                                                                        // down arrow
+
             moveCursor(0);
             break;
-        case 27:                    // ESC key
-        case 8:                     // Backspace key
-            if(document.querySelector('.note').hasAttribute('data-source-location') && document.body.classList.contains('template-note')) {  // if note template
-                setResult(document.querySelector('.note').getAttribute('data-source-result'));                                                 // set source-location
-                loadPage(document.querySelector('.note').getAttribute('data-source-location'));                                                // set source-result
-            } else if(document.querySelector('.menu .item[data-name=back]')) {                                                               // else if menu template
-                setResult(document.querySelector('.menu .item[data-name=back]').getAttribute('data-result'));                                    // set source-result
-                loadPage(document.querySelector('.menu .item[data-name=back]').getAttribute('data-location'));                                   // set source-location
-            } else {                                                                                                                         // else
-                e.preventDefault();                                                                                                              // prevent default
-                history.back();                                                                                                                  // and go back
+
+        case 27:                                                                                                        // ESC key
+        case 8:                                                                                                         // Backspace key
+
+            if(document.body.classList.contains('template-note')) {                                                     // if note template
+
+                var currentSection = document.querySelector('.note .active');                                                   // get the current section
+                var currentSectionIndex = parseInt(currentSection.getAttribute('data-note-section'));                           // get the current section's index
+
+                if (currentSectionIndex === 1) {                                                                                // if it's is the first section
+                    setResult(document.querySelector('.note').getAttribute('data-source-result'));                                  // set result text
+                    loadPage(document.querySelector('.note').getAttribute('data-source-location'), true);                           // go to source page
+                } else {                                                                                                        // if it's not the first section
+                    currentSection.classList.remove('active');                                                                      // remove '.active' class
+                    document.querySelector('.note [data-note-section="' + (currentSectionIndex - 1) + '"]').classList.add('active');// new '.active' section
+                }
+
+            } else if(document.querySelector('.menu .item[data-name=back]')) {                                              // else if menu template
+                setResult(document.querySelector('.menu .item[data-name=back]').getAttribute('data-result'));                   // set source-result
+                loadPage(document.querySelector('.menu .item[data-name=back]').getAttribute('data-location'), true);            // set source-location
+            } else {                                                                                                        // else
+                e.preventDefault();                                                                                             // prevent default
+                history.back();                                                                                                 // and go back
             }
             break;
-        case 13:                    // Enter key
-        case 32:                    // Spacebar
-            if(document.querySelector('.note').hasAttribute('data-source-location') && document.body.classList.contains('template-note')) {  // if note template
-                setResult(document.querySelector('.note').getAttribute('data-source-result'));                                                 // set source-location
-                loadPage(document.querySelector('.note').getAttribute('data-source-location'));                                                // set source-result
+
+        case 13:                                                                                                        // Enter key
+        case 32:                                                                                                        // Spacebar
+
+            if(document.body.classList.contains('template-note')) {                                                         // if note template
+
+                var noteTemplate = document.querySelector('.note');                                                             // get the note template
+                var currentSection = document.querySelector('.note .active');                                                   // get the current section
+                var lastSectionIndex = parseInt(noteTemplate.getAttribute('data-note-total-sections'));                         // get the final section's index
+                var currentSectionIndex = parseInt(currentSection.getAttribute('data-note-section'));                           // get the current section's index
+
+                if (currentSectionIndex === lastSectionIndex) {                                                                 // if it's the final section
+                    setResult(document.querySelector('.note').getAttribute('data-source-result'));                                  // set result text
+                    loadPage(document.querySelector('.note').getAttribute('data-source-location'), true);                           // go to source page
+                } else {                                                                                                        // if it's not the final section
+                    currentSection.classList.remove('active');                                                                      // remove '.active' class
+                    document.querySelector('.note [data-note-section="' + (currentSectionIndex + 1) + '"]').classList.add('active');// new '.active' section
+                }
             }
             break;
-        case 9:                     // Tab key
+
+        case 9:                                                                                                         // Tab key
+
             e.preventDefault();
             break;
-        }
+    }
 }
+
+
+
+// MOVE CURSOR (CHANGE THE HIGHLIGHTED ITEM IN MENUS)
 
 function moveCursor(direction) {
 

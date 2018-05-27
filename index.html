@@ -37,25 +37,6 @@
     <script src="js/controller.js"></script>
     <script src="js/interface.js"></script>
     <script src="js/actions.js"></script>
-
-    <script>
-        // a regex matcher for everything from 'index.html' onward
-        var pageNameURL = new RegExp('\/index\.html.*');
-
-        // the page URL excluding everything from 'index.html' onward
-        var baseURL = window.location.href.replace(pageNameURL, '');
-
-        loadPage();
-
-        function pageLoaded() {
-            var colorName = localStorage.getItem("colorName") || "green";
-            var colorValue = localStorage.getItem("colorValue") || "#1aff80";
-            var difficultyLabel = localStorage.getItem("difficultyLabel") || 'None';
-            var difficultyValue = localStorage.getItem("difficultyValue") || 0;
-
-            setColor(colorName, colorValue);
-            setDifficulty(difficultyLabel, difficultyValue);
-        }
-    </script>
+    <script>loadPage();</script>
 </body>
 </html>

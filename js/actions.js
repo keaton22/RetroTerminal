@@ -1,4 +1,8 @@
-var setResultTimeout;
+var setResultTimeout;                                                       // a timer for removing the result text
+
+
+
+// SET COLOR
 
 function setColor(name, value) {
 
@@ -33,6 +37,10 @@ function setDifficulty(label, value) {
     console.groupEnd();
 }
 
+
+
+// SET RESULT TEXT
+
 function setResult(status) {
 
     if(status) {
@@ -44,11 +52,19 @@ function setResult(status) {
     }
 }
 
+
+
+// CLEAR RESULT TEXT
+
 function clearResult() {
     document.querySelector(".result .status").innerHTML = "";
 }
 
-function menuItemSelected(elem) {       // a menu item has been pressed (via enter key)/clicked on
+
+
+// DO ACTION (ACTION PROVIDED BY A MENU ITEM)
+
+function doAction(elem) {                                   // a menu item has been pressed (via enter key)/clicked on
     var name = elem.getAttribute("data-name");
     var label = elem.getAttribute("data-label");
     var action = elem.getAttribute("data-action") || '';
@@ -69,6 +85,4 @@ function menuItemSelected(elem) {       // a menu item has been pressed (via ent
             setDifficulty(label, value);
             break;
     }
-
-    setResult(elem.getAttribute("data-result"));
 }

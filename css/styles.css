@@ -52,12 +52,10 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
-
-/*    box-shadow: 0 0 0 1px salmon;*/
 }
 
 #header {
-    margin-bottom: 12px;
+    padding-bottom: 12px;
 }
 
 #header .os, #header .copyright, #header .server {
@@ -149,10 +147,20 @@ body {
 
 .note {
     display: none;             /* display is set by .template-* rule */
-    margin-top: 8px;
+    padding-top: 8px;
+    margin: 0;
     letter-spacing: 1px;
     line-height: 12px;
     word-spacing: 0px;
+    white-space: pre-wrap;
+}
+
+.note [data-note-section] {
+    display: none;            /* display is set by .active class */
+}
+
+.note [data-note-section].active {
+    display: inline;         /* visibility of current note section set here */
 }
 
 .template-note .note {
@@ -160,10 +168,11 @@ body {
 }
 
 #footer {
-    height: 16px;
+    height: 32px;
+    padding-top: 16px;
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 4px;
 }
 
 #footer .result {
