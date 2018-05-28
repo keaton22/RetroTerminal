@@ -101,8 +101,8 @@ body {
 .menu {
     display: none;             /* display is set by .template-* rule */
     width: 100%;
-    margin: 2px 0;
     padding: 0;
+    margin: 2px 0;
     overflow: hidden;
 }
 
@@ -111,16 +111,16 @@ body {
 }
 
 .menu .item {
-    display: block;
+    display: none;        /* hide menu items if they're not .active (different from .selected) */
     width: auto;
     height: 22px;        /* prevents applied :focus from squishing the automatic height */
     line-height: 22px;
     letter-spacing: 1px;
-    margin: 2px 36px 2px 0;
+    margin: 2px 36px 0px 0;
 }
 
-.menu .item:hover {
-    cursor: pointer;
+.menu .item.visible {
+    display: block;        /* actual display value is set here */
 }
 
 .menu .item:before {

@@ -78,6 +78,9 @@ function doAction(elem) {                                   // a menu item has b
         case "shutdown":
             ajax("php/actions.php?action=" + action, "GET", function (response) {});
             break;
+        case "moveCursor":
+            moveCursor(parseInt(value));
+            break;
         case "setColor":
             setColor(name, value);
             break;

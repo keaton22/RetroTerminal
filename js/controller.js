@@ -8,6 +8,7 @@ var headerHeight = 54;              // the height of the header
 var footerHeight = 40;              // the height of the footer (this value is altered slightly)
 var welcomeTemplateHeight;          // the height of the welcome template
 var noteTemplateHeight;             // the height of the note template
+var menuTemplateHeight;             // the height of the menu template
 var remainingHeight;                // equal to contentHeight - (headerHeight + welcomeTemplateHeight + footerHeight)
 
 
@@ -84,11 +85,11 @@ function templateHandler(meta) {
 // WRITE WELCOME TEMPLATE
 
 function writeWelcome(meta) {
-    document.querySelector("." + meta.type).innerHTML = meta.value;
+    document.querySelector('.welcome').innerHTML = meta.value;
 
-    welcomeTemplateHeight = document.querySelector("." + meta.type).offsetHeight;
+    welcomeTemplateHeight = document.querySelector('.welcome').offsetHeight;
 
-    console.log("injected data into " + meta.type);
+    console.log("injected data into welcome");
 
     templatePopulated();
 }
@@ -99,28 +100,62 @@ function writeWelcome(meta) {
 
 function writeMenu(meta) {
 
+    menuTemplateHeight = document.querySelector(".menu").offsetHeight;                          // the height of full menu (inclusive of heights of all items)
+    remainingHeight = contentHeight - (headerHeight + welcomeTemplateHeight + footerHeight);    // the available space for the menu to show in
+    document.querySelector(".menu").style.height = remainingHeight + 'px';                      // set the .menu height to the remainingHeight
+
     if (meta.source.location !== 'root') {                  // if the page's source location isn't 'root' (e.g. the page is not 'home')
-        meta.value[meta.value.length] = {                   // add 'Back' as a new item to the menu
-            'name': 'back',                                 // set its name
-            'label': 'Back',                                // set its label
-            'location': meta.source.location,               // set its location
-            'result': meta.source.result                    // set its result text
-        };
+        meta.value.push({                                       // insert 'Back' at the end of the menu
+            'name': 'back',                                         // set its name
+            'label': 'Back',                                        // set its label
+            'location': meta.source.location,                       // set its location
+            'result': meta.source.result                            // set its result text
+        });
     }
 
     if (meta.source.location === '') {                      // if there's no source location
         meta.source.location = undefined;                       // set it as 'undefined'
     }
 
-    for(i = 0; i < meta.value.length; i++) {
+    var numMenuSections = 0;                                                        // what is the current menu section
+    var numItemsPerMenuSection = Math.floor(remainingHeight / 24)                   // how many menu items can fit in the remaining space? (24 = 24px item height)
+
+    for (i = 0; i < meta.value.length; i++) {                                       // the for loop that determines where to put 'Next' and 'Previous' menu items
+
+        if (((i + 1) % numItemsPerMenuSection === 0) && (meta.value.length > numItemsPerMenuSection)) {     // if a new section is needed
+
+            meta.value.splice(i, 0, {                       // insert 'Next' item at the current index
+                'name': 'next',                                 // set its name
+                'label': 'Next',                                // set its label
+                'action': 'moveCursor',                         // set its action to moveCursor
+                'value': '0',                                   // set its value to 0 (e.g. moveCursor(0))
+            });
+
+            meta.value.splice(i + 1, 0, {                   // insert 'Previous' item at the index after the current index
+                'name': 'previous',                             // set its name
+                'label': 'Previous',                            // set its label
+                'action': 'moveCursor',                         // set its action to moveCursor
+                'value': '1',                                   // set its value to 0 (e.g. moveCursor(1))
+            });
+
+            i += 2;                                         // add 2 to the count to make up for the two menu items just added
+        }
+    }
+
+    for (i = 0; i < meta.value.length; i++) {                                       // the for loop that "manufactures" the menu items
 
         var li = document.createElement("li");
         var text = document.createTextNode(meta.value[i].label);
-        li.className = "item";
+        li.classList.add('item');
 
         li.setAttribute("data-name", (meta.value[i].name || ""));                                 // set name (required)
         li.setAttribute("data-label", (meta.value[i].label || ""));                               // set label (required)
+        li.setAttribute("data-menu-section", (numMenuSections + 1));                              // set menu section (first section is 1, not 0)
         li.setAttribute("tabindex", ("-1"));                                                      // set tabindex (allows element to be focusable)
+
+        if ((numMenuSections + 1) === 1) {
+            li.classList.add('visible');
+        }
 
         // only allow the following attributes to be created if they exist in the json
         meta.value[i].location && li.setAttribute("data-location", meta.value[i].location);       // set location (like [href])
@@ -128,44 +163,21 @@ function writeMenu(meta) {
         meta.value[i].value && li.setAttribute("data-value", (meta.value[i].value));              // set value (if choosing between things)
         meta.value[i].result && li.setAttribute("data-result", (meta.value[i].result));           // set result (the feedback message)
 
-        meta.value[i].location && li.addEventListener("click", function () {                      // click event for location
+        meta.value[i].location && li.addEventListener("keydown", function (e) {                   // keydown event listener for location
+            if (e.which === 13 || e.which === 32) {                                                 // if enter key is pressed
 
-            var itemLocation = this.getAttribute('data-location');                                // track the item location
-            setResult(this.getAttribute('data-result'));                                          // set the result text
+                var itemLocation = this.getAttribute('data-location');                                  // track the item location
+                setResult(this.getAttribute('data-result'));                                            // set the result text
 
-            if (itemLocation === meta.source.location) {                                          // if this is a 'Back' item
-                loadPage(this.getAttribute('data-location'), true);                                   // load the page, but don't create a new history state
-            } else {                                                                              // if the page is not a 'Back' item
-                loadPage(this.getAttribute('data-location'));                                         // set the location and create a new history state
-            }
-        });
-
-        meta.value[i].location && li.addEventListener("keydown", function (e) {                   // keydown event for action
-            if (e.which === 13 || e.which === 32) {                                               // if enter key is pressed
-
-                var itemLocation = this.getAttribute('data-location');                            // track the item location
-                setResult(this.getAttribute('data-result'));                                      // set the result text
-
-                if (itemLocation === meta.source.location) {                                      // if this is a 'Back' item
-                    loadPage(this.getAttribute('data-location'), true);                               // load the page, but don't create a new history state
-                } else {                                                                          // if the page is not a 'Back' item
-                    loadPage(this.getAttribute('data-location'));                                     // set the location and create a new history state
+                if (itemLocation === meta.source.location) {                                            // if this is a 'Back' item
+                    loadPage(this.getAttribute('data-location'), true);                                     // load the page, but don't create a new history state
+                } else {                                                                                // if the page is not a 'Back' item
+                    loadPage(this.getAttribute('data-location'));                                           // set the location and create a new history state
                 }
             }
         });
 
-        // click event listener for menu items with an action or location
-        meta.value[i].action && li.addEventListener("click", function () {
-            if(document.querySelector(".menu .item.selected")) {                        // if there's already a selected menu item
-                document.querySelector(".menu .item.selected").className = "item";          // deselect it
-            }
-            this.className += " selected";                                              // and select the current menu item
-            setResult(this.getAttribute('data-result'));                                // set the result text
-            doAction(this);                                                             // do the thing the menu item says it does
-        });
-
-        // keydown event listener for menu items with an action or location
-        meta.value[i].action && li.addEventListener("keydown", function (e) {
+        meta.value[i].action && li.addEventListener("keydown", function (e) {       // keydown event listener for action
             if (e.which === 13 || e.which === 32) {                                     // if enter key or spacebar is pressed
                 setResult(this.getAttribute('data-result'));                                // set the result text
                 doAction(this);                                                             // do the thing the menu item says it does
@@ -173,12 +185,18 @@ function writeMenu(meta) {
         });
 
         li.appendChild(text);                                                           // put text in <li> elements
-        document.querySelector("." + meta.type).appendChild(li);                        // put <li> elements in .menu
-        console.log("injected \"" + meta.value[i].label + "\" into " + meta.type);
+        document.querySelector('.menu').appendChild(li);                        // put <li> elements in .menu
+        console.log('injected \"' + meta.value[i].label + '\" into menu');
+
+        if ((i + 1) % numItemsPerMenuSection === 0) {                                   // if it's the last menu item in the section
+            numMenuSections++;                                                              // increment numMenuSections
+        }
     }
 
-    document.querySelector("." + meta.type + " ." + li.className).className += " selected";
-    document.querySelector("." + meta.type + " ." + li.className).focus();
+    document.querySelector('.menu').setAttribute('data-menu-current-section', 1);                   // set the first menu section to the current menu section
+    document.querySelector('.menu').setAttribute('data-menu-total-sections', numMenuSections + 1);  // set total number of menu sections
+    document.querySelector('.menu .item').classList.add('selected');                                // add .selected to the first menu item
+    document.querySelector('.menu .item').focus();                                                  // put :focus on the first menu item
 
     templatePopulated();
 }
@@ -222,12 +240,12 @@ function writeNote(meta) {
         }                                                                                       // 1 greater than it should, keep this in mind when labeling
     }                                                                                           // data-note-total-sections below because it won't need '+ 1')
 
-    document.querySelector('.note [data-note-section="1"]').classList.add('active');            // set the '.active' class on the first section
+    document.querySelector('.note [data-note-section="1"]').classList.add('active');            // set the '.visible' class on the first section
     document.querySelector('.note').setAttribute('data-note-total-sections', numNoteSections);  // set total number of note sections (no '+ 1', see above)
     document.querySelector('.note').setAttribute("data-source-location", meta.source.location); // set source location
     document.querySelector('.note').setAttribute("data-source-result", meta.source.result);     // set source result text
 
-    console.log("injected data into " + meta.type);
+    console.log('injected data into note');
 
     templatePopulated();
 }
