@@ -1,7 +1,0 @@
-NOTES:
-
-- existing result can be overwritten by new result before expiration
-
-- result syntax:
-	- to indicate completed/pending actions, use '...' at the end
-	- to indicate information, DON'T use '...' at the end
