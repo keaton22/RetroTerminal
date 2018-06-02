@@ -278,4 +278,5 @@ function pageLoaded() {
 
     setColor(colorName, colorValue);                                                // set the colorName and colorValue
     setDifficulty(difficultyLabel, difficultyValue);                                // set the difficultyLabel and difficultyValue
+    drawFavicon();
 }
