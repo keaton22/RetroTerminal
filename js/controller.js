@@ -271,7 +271,7 @@ function templatePopulated() {
 // PAGE LOADED (AFTER ALL TEMPLATES ARE POPULATED)
 
 function pageLoaded() {
-    var colorName = localStorage.getItem(colorName) || green;                   // get the colorName (or set to default)
+    var colorName = localStorage.getItem(colorName) || 'green';                   // get the colorName (or set to default)
     var colorValue = localStorage.getItem(colorValue) || '#1aff80';               // get the colorValue (or set to default)
     var difficultyLabel = localStorage.getItem(difficultyLabel) || 'None';        // get the difficultyLabel (or set to default)
     var difficultyValue = localStorage.getItem(difficultyValue) || 0;             // get the difficultyValue (or set to default)
