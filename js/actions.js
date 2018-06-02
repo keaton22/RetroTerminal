@@ -1,5 +1,5 @@
 var setResultTimeout;                                                       // a timer for removing the result text
-
+var drawFaviconInterval;                                                    // a recurring task to make the favicon blink
 
 
 // GET COLOR
@@ -80,7 +80,9 @@ function clearResult() {
 function drawFavicon() {                                        // draw (or redraw) the page's favicon
     var faviconBlinkToggler = true;
 
-    setInterval(function () {
+    clearInterval(drawFaviconInterval);
+
+    drawFaviconInterval = setInterval(function () {
         var canvas = document.createElement('canvas');                  // create a new canvas in the DOM (but not in the page because that's not necessary)
         var ctx = canvas.getContext('2d');                              // give the canvas a 2D context
         canvas.width = 16;                                              // set the pixel width of the canvas
