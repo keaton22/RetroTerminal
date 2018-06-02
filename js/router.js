@@ -17,7 +17,7 @@ function loadPage(page, popstateUsed) {
     page = page || 'home';                      // set the default page to "home" if no other page is set
     popstateUsed = popstateUsed || false;       // set the default value for
 
-    if(!popstateUsed) {                         // if loadPage() is called WITHOUT using the 'popstate' event
+    if (!popstateUsed) {                         // if loadPage() is called WITHOUT using the 'popstate' event
         history.pushState(page, null, 'index.html?page=' + page);      // create a new history state with pushState()
     }
 
@@ -25,9 +25,9 @@ function loadPage(page, popstateUsed) {
 
     cleanPage();                                // clean the page
 
-    ajax(baseURL + "/json/" + page + ".json", "GET", dataHandler);      // ask the server for the new page's [JSON] data
+    ajax(baseURL + '/json/' + page + '.json', 'GET', dataHandler);      // ask the server for the new page's [JSON] data
 
-    console.info("%cnew page loaded", "background: rgba(0,0,255,0.2); color: rgba(0,0,255,1); padding: 2px;");
+    console.info('%cnew page loaded', 'background: rgba(0,0,255,0.2); color: rgba(0,0,255,1); padding: 2px;');
     console.groupEnd();
 }
 
@@ -36,9 +36,9 @@ function loadPage(page, popstateUsed) {
 // CLEAN PAGE (REMOVE THE CONTENTS OF THE OLD PAGE)
 
 function cleanPage() {
-    var welcome = document.querySelector(".welcome");
-    var menu = document.querySelector(".menu");
-    var note = document.querySelector(".note");
+    var welcome = document.querySelector('.welcome');
+    var menu = document.querySelector('.menu');
+    var note = document.querySelector('.note');
 
     while (welcome.hasChildNodes()) {                       // clean the welcome template
         welcome.removeChild(welcome.lastChild);
@@ -56,5 +56,5 @@ function cleanPage() {
     document.body.className = '';
 
     console.groupCollapsed('changing pages...');
-    console.info("%cold page cleaned", "background: rgba(0,0,255,0.2); color: rgba(0,0,255,1); padding: 2px;");
+    console.info('%cold page cleaned', 'background: rgba(0,0,255,0.2); color: rgba(0,0,255,1); padding: 2px;');
 }

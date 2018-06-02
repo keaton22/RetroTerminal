@@ -27,7 +27,7 @@ document.onkeydown = function (e) {
                     loadPage(document.querySelector('.note').getAttribute('data-source-location'), true);                           // go to source page
                 } else {                                                                                                        // if it's not the first section
                     currentNoteSection.classList.remove('active');                                                                  // remove '.active' class
-                    document.querySelector('.note [data-note-section="' + (currentNoteSectionIndex - 1) + '"]').classList.add('active');// new '.active' section
+                    document.querySelector('.note [data-note-section=\"' + (currentNoteSectionIndex - 1) + '\"]').classList.add('active');// new '.active' section
                 }
 
             } else if (document.querySelector('.menu .item[data-name=back]')) {                                          // else if menu template but not home page
@@ -54,7 +54,7 @@ document.onkeydown = function (e) {
                     loadPage(document.querySelector('.note').getAttribute('data-source-location'), true);                           // go to source page
                 } else {                                                                                                        // if it's not the final section
                     currentNoteSection.classList.remove('active');                                                                  // remove '.active' class
-                    document.querySelector('.note [data-note-section="' + (currentNoteSectionIndex + 1) + '"]').classList.add('active'); // new '.active' section
+                    document.querySelector('.note [data-note-section=\"' + (currentNoteSectionIndex + 1) + '\"]').classList.add('active'); // new '.active' section
                 }
             } else if (document.body.classList.contains('template-menu')) {
                 document.querySelector('.menu .item.selected').focus();
@@ -74,16 +74,16 @@ document.onkeydown = function (e) {
 
 function moveCursor(direction) {
 
-    if (document.querySelector(".menu")) {
+    if (document.querySelector('.menu')) {
 
-        var currentMenuSectionItems = document.querySelectorAll(".menu > .item.visible");                               // get number of items in current menu section
+        var currentMenuSectionItems = document.querySelectorAll('.menu > .item.visible');                               // get number of items in current menu section
         var currentMenuSection = parseInt(document.querySelector('.menu').getAttribute('data-menu-current-section'));   // get numerical value of current menu section
 
         if (direction === 0) {                                                      // if the down arrow is pressed
-            var current = document.querySelector(".menu .item.selected");               // set the selected item as the current one
+            var current = document.querySelector('.menu .item.selected');               // set the selected item as the current one
             var next = current.nextSibling;                                             // set the item after the first selected item as the next one
 
-            if (document.querySelector(".menu .item.selected").nextSibling) {           // if it's not the very last item in the menu
+            if (document.querySelector('.menu .item.selected').nextSibling) {           // if it's not the very last item in the menu
 
                 if (next.classList.contains('visible')) {       // if it's not the last item in the section
                     current.classList.remove('selected');           // deselect the currently selected item
@@ -108,7 +108,7 @@ function moveCursor(direction) {
                     next.focus();                                                   // put :focus on the next item
                 }
             } else {                                                    // if it's the very last item in the menu
-                next = document.querySelector(".menu .item.visible");       // set the next item as the first visible item in the section
+                next = document.querySelector('.menu .item.visible');       // set the next item as the first visible item in the section
                 current.classList.remove('selected');                       // deselect the currently selected item
                 next.classList.add('selected');                             // select the new currently selected item
                 next.focus();                                               // put :focus on the new currently selected item
@@ -116,7 +116,7 @@ function moveCursor(direction) {
         }
 
         if (direction === 1) {                                                      // if the up arrow is pressed
-            var current = document.querySelector(".menu .item.selected");               // set the selected item as the current one
+            var current = document.querySelector('.menu .item.selected');               // set the selected item as the current one
             var next = current.previousSibling;                                         // set the item before the first selected item as the next one
 
             if (document.querySelector('.menu .item.selected').previousSibling) {       // if it's not the very first item in the menu

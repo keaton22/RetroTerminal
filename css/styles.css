@@ -79,7 +79,7 @@ body {
 }
 
 #header .server:before, #header .server:after {
-    content: "-";
+    content: '-';
 }
 
 .welcome {
@@ -124,7 +124,7 @@ body {
 }
 
 .menu .item:before {
-    content: "> ";
+    content: '> ';
 }
 
 .menu .item.selected {

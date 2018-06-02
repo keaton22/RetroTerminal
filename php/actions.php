@@ -2,15 +2,15 @@
     $action = $_REQUEST['action'];
 
     switch ($action) {
-        case "playFallout":
+        case 'playFallout':
             break;
-        case "logoff":
+        case 'logoff':
             shell_exec('sudo -u chip killall epiphany');
             break;
-        case "reboot":
+        case 'reboot':
         shell_exec('sudo /sbin/shutdown -r now');
             break;
-        case "shutdown":
+        case 'shutdown':
             shell_exec('sudo /sbin/shutdown -h now');
             break;
     }
