@@ -37,9 +37,24 @@ function setColor(name, value) {
     console.log('%ccolor set to ' + name + ' (' + value + ')', 'color: ' + value + '; background-image: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.8) 100%); background-color: ' + value + '; padding: 2px;');
 }
 
+
+
+// GET DIFFICULTY
+
+function getDifficulty() {
+    var label = localStorage.getItem('difficultyLabel');                    // get the label (the item's name displayed in the menu)
+    var value = parseInt(localStorage.getItem('difficultyValue'));          // get the value and convert it to an integer
+
+    return {'label': label, 'value': value};                                // return the label and value
+}
+
+
+
+// SET DIFFICULTY
+
 function setDifficulty(label, value) {
-    localStorage.setItem('difficultyLabel', label);                 // get the label (the item's name displayed in the menu)
-    localStorage.setItem('difficultyValue', parseInt(value));       // get the value and convert it to an integer
+    localStorage.setItem('difficultyLabel', label);                 // set the label (the item's name displayed in the menu)
+    localStorage.setItem('difficultyValue', parseInt(value));       // set the value as an integer
 
     if (parseInt(value) === 0) {
         console.log('difficulty turned off (' + value + ')');
