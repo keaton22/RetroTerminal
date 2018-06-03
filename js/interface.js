@@ -3,6 +3,8 @@
 
 document.onkeydown = function (e) {
 
+    e.preventDefault();
+
     switch (e.which || e.keyCode) {
 
         case 38:    // up arrow
@@ -35,7 +37,7 @@ document.onkeydown = function (e) {
                 loadPage(document.querySelector('.menu .item[data-name=back]').getAttribute('data-location'), true);            // set source-location
 
             } else {                                                                                                        // else
-                e.preventDefault();                                                                                             // prevent default
+                // this used to be 'e.preventDefault();' until it was added at the top of the 'document.onkeydown' event listener
                 history.back();                                                                                                 // and go back
             }
             break;
@@ -63,7 +65,7 @@ document.onkeydown = function (e) {
 
         case 9:     // Tab key
 
-            e.preventDefault();
+            // this used to be 'e.preventDefault();' until it was added at the top of the 'document.onkeydown' event listener
             break;
     }
 }
