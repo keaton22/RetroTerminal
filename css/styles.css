@@ -18,7 +18,10 @@ colors:
 
 * {
     box-sizing: border-box;
-    -webkit-font-smoothing: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 *:focus {
@@ -30,7 +33,6 @@ html {
     overflow: hidden;
     font-family: 'fsex300';
     font-size: 16px;
-    user-select: none;
 }
 
 body {
