@@ -242,8 +242,8 @@ function writeNote(meta) {
 
     document.querySelector('.note [data-note-section="1"]').classList.add('active');            // set the '.visible' class on the first section
     document.querySelector('.note').setAttribute('data-note-total-sections', numNoteSections);  // set total number of note sections (no '+ 1', see above)
-    document.querySelector('.note').setAttribute(data-source-location, meta.source.location); // set source location
-    document.querySelector('.note').setAttribute(data-source-result, meta.source.result);     // set source result text
+    document.querySelector('.note').setAttribute('data-source-location', meta.source.location); // set source location
+    document.querySelector('.note').setAttribute('data-source-result', meta.source.result);     // set source result text
 
     console.log('injected data into note');
 
