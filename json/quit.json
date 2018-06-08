@@ -36,46 +36,6 @@
                     "label": "Shutdown",
                     "action": "shutdown",
                     "result": "Shutting down..."
-                },
-                {
-                    "name": "item",
-                    "label": "Item"
-                },
-                {
-                    "name": "item",
-                    "label": "Item"
-                },
-                {
-                    "name": "item",
-                    "label": "Item"
-                },
-                {
-                    "name": "item",
-                    "label": "Item"
-                },
-                {
-                    "name": "item",
-                    "label": "Item"
-                },
-                {
-                    "name": "item",
-                    "label": "Item"
-                },
-                {
-                    "name": "item",
-                    "label": "Item"
-                },
-                {
-                    "name": "item",
-                    "label": "Item"
-                },
-                {
-                    "name": "item",
-                    "label": "Item"
-                },
-                {
-                    "name": "item",
-                    "label": "Item"
                 }
             ]
         }
