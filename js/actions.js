@@ -2,6 +2,7 @@ var setResultTimeout;                                                       // a
 var drawFaviconInterval;                                                    // a recurring task to make the favicon blink
 
 
+
 // GET COLOR
 
 function getColor() {                                                       // a function for getting the current theme color
