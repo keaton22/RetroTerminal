@@ -76,7 +76,7 @@ document.onkeydown = function (e) {
 
 function moveCursor(direction) {
 
-    if (document.querySelector('.menu')) {
+    if (document.body.classList.contains('template-menu')) {
 
         var currentMenuSectionItems = document.querySelectorAll('.menu > .item.visible');                               // get number of items in current menu section
         var currentMenuSection = parseInt(document.querySelector('.menu').getAttribute('data-menu-current-section'));   // get numerical value of current menu section
