@@ -54,10 +54,11 @@ function dataHandler(response) {
 
     console.groupCollapsed('got data from ' + data.page + '.json');
 
+    var source = data.source;                                       // source includes source.location and source.result
+
     for (i = 0; i < data.templates.length; i++) {
         var type = data.templates[i].type;
         var value = data.templates[i].value;
-        var source = data.source;                                       // source includes source.location and source.result
 
         meta = {'type': type, 'value': value, 'source': source};        // update meta information
 
