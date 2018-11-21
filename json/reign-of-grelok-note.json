@@ -4,15 +4,12 @@
         "location": "games",
         "result": ""
     },
-    "templates": [
-
-        {
-            "type": "welcome",
-            "value": "Reign of Grelok (beta v.632)"
+    "templates": {
+        "welcome": {
+            "text": "Reign of Grelok (beta v.632)"
         },
-        {
-            "type": "note",
-            "value": "\"Hoo-hoo!  The slayer of Grelok approaches, raw stone in hand, just as I've seen!\"  The wizard's pointy hat bobs excitedly as he points a finger at you.  Suddenly, a pale orange arc of light extends from the knobby finger and draws the gemstone from your bag before you can react.  The gemstone halts and hovers in the air before the wizard's nose. \n\n\"Essence be true, powers renew, \nFatty-Hoo-Do!\"  With that, he slaps the hovering stone, smashing it against the smooth stone of the tower.  In a burst of light, the stone splits into two, and one lands in each outstretched palm of the hopping little wizard.  \n\n\"Shard for the sword.  Wrap her in iron and she'll find Grelok's black heart for you.  Take the chaff, too.  You'll need payment for a smith to forge the weapon.\"  He tosses the stones down which you leap forward to catch safely."
+        "note": {
+            "text": "\"Hoo-hoo!  The slayer of Grelok approaches, raw stone in hand, just as I've seen!\"  The wizard's pointy hat bobs excitedly as he points a finger at you.  Suddenly, a pale orange arc of light extends from the knobby finger and draws the gemstone from your bag before you can react.  The gemstone halts and hovers in the air before the wizard's nose. \n\n\"Essence be true, powers renew, \nFatty-Hoo-Do!\"  With that, he slaps the hovering stone, smashing it against the smooth stone of the tower.  In a burst of light, the stone splits into two, and one lands in each outstretched palm of the hopping little wizard.  \n\n\"Shard for the sword.  Wrap her in iron and she'll find Grelok's black heart for you.  Take the chaff, too.  You'll need payment for a smith to forge the weapon.\"  He tosses the stones down which you leap forward to catch safely."
         }
-    ]
+    }
 }

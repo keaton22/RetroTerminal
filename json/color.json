@@ -4,15 +4,12 @@
         "location": "settings",
         "result": ""
     },
-    "templates": [
-
-        {
-            "type": "welcome",
-            "value": "Change the color of Retro Terminal"
+    "templates": {
+        "welcome": {
+            "text": "Change the color of Retro Terminal"
         },
-        {
-            "type": "menu",
-            "value": [
+        "menu": {
+            "items": [
                 {
                     "name": "green",
                     "label": "Green",
@@ -43,5 +40,5 @@
                 }
             ]
         }
-    ]
+    }
 }

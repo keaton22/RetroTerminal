@@ -4,15 +4,12 @@
         "location": "home",
         "result": ""
     },
-    "templates": [
-
-        {
-            "type": "welcome",
-            "value": "A set of demo pages that explains the anatomy of Retro Terminal templates"
+    "templates": {
+        "welcome": {
+            "text": "A set of demo pages that explains the anatomy of Retro Terminal templates"
         },
-        {
-            "type": "menu",
-            "value": [
+        "menu": {
+            "items": [
                 {
                     "name": "menu-template",
                     "label": "Menu Template",
@@ -27,5 +24,5 @@
                 }
             ]
         }
-    ]
+    }
 }

@@ -4,15 +4,12 @@
         "location": "home",
         "result": ""
     },
-    "templates": [
-
-        {
-            "type": "welcome",
-            "value": "That's right! Retro Terminal has games!"
+    "templates": {
+        "welcome": {
+            "text": "That's right! Retro Terminal has games!"
         },
-        {
-            "type": "menu",
-            "value": [
+        "menu": {
+            "items": [
                 {
                     "name": "fallout",
                     "label": "Fallout",
@@ -33,5 +30,5 @@
                 }
             ]
         }
-    ]
+    }
 }

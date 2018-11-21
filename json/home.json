@@ -1,18 +1,15 @@
 {
-    "page": "home",
+    "name": "home",
     "source": {
         "location": "root",
         "result": ""
     },
-    "templates": [
-
-        {
-            "type": "welcome",
-            "value": "Welcome to Retro Terminal! Explore the options below to learn more."
+    "templates": {
+        "welcome": {
+            "text": "Welcome to Retro Terminal! Explore the options below to learn more."
         },
-        {
-            "type": "menu",
-            "value": [
+        "menu": {
+            "items": [
                 {
                     "name": "about",
                     "label": "About Retro Terminal",
@@ -45,5 +42,5 @@
                 }
             ]
         }
-    ]
+    }
 }

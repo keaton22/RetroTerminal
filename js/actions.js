@@ -6,8 +6,8 @@ var drawFaviconInterval;                                                    // a
 // GET COLOR
 
 function getColor() {                                                       // a function for getting the current theme color
-    var name = localStorage.getItem('colorName');                               // get the color's name
-    var value = localStorage.getItem('colorValue');                             // get the color's value (hex, rgb, or whatever the value was stored as)
+    var name = localStorage.getItem('colorName') || 'green';                    // get the color's name
+    var value = localStorage.getItem('colorValue') || '#1aff80';                // get the color's value (hex, rgb, or whatever the value was stored as)
 
     return {'name': name, 'value': value};                                      // return an array of the color's name and value
 }
@@ -42,9 +42,9 @@ function setColor(name, value) {
 
 // GET DIFFICULTY
 
-function getDifficulty() {
-    var label = localStorage.getItem('difficultyLabel');                    // get the label (the item's name displayed in the menu)
-    var value = parseInt(localStorage.getItem('difficultyValue'));          // get the value and convert it to an integer
+function getDifficulty() {                                              // a function for getting the current difficulty
+    var label = localStorage.getItem('difficultyLabel') || 'None'           // get the label (the item's name displayed in the menu)
+    var value = parseInt(localStorage.getItem('difficultyValue')) || 0;     // get the value and convert it to an integer
 
     return {'label': label, 'value': value};                                // return the label and value
 }

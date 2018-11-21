@@ -18,14 +18,14 @@ function loadPage(page, popstateUsed) {
     popstateUsed = popstateUsed || false;       // set the default value for
 
     if (!popstateUsed) {                         // if loadPage() is called WITHOUT using the 'popstate' event
-        history.pushState(page, null, 'index.html?page=' + page);      // create a new history state with pushState()
+        history.pushState(page, null, 'index.html?page=' + page);       // create a new history state with pushState()
     }
 
     console.groupCollapsed('go to "' + page + '" page');
 
     cleanPage();                                // clean the page
 
-    ajax(baseURL + '/json/' + page + '.json', 'GET', dataHandler);      // ask the server for the new page's [JSON] data
+    ajax(baseURL + '/json/' + page + '.json', 'GET', pageBuilder);      // ask the server for the new page's [JSON] data
 
     console.info('%cnew page loaded', 'background: rgba(0,0,255,0.2); color: rgba(0,0,255,1); padding: 2px;');
     console.groupEnd();

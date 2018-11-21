@@ -4,15 +4,12 @@
         "location": "settings",
         "result": ""
     },
-    "templates": [
-
-        {
-            "type": "welcome",
-            "value": "Change the difficulty of Retro Terminal"
+    "templates": {
+        "welcome": {
+            "text": "Change the difficulty of Retro Terminal"
         },
-        {
-            "type": "menu",
-            "value": [
+        "menu": {
+            "items": [
                 {
                     "name": "none",
                     "label": "None",
@@ -57,5 +54,5 @@
                 }
             ]
         }
-    ]
+    }
 }

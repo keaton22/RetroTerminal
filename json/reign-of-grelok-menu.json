@@ -4,15 +4,12 @@
         "location": "games",
         "result": ""
     },
-    "templates": [
-
-        {
-            "type": "welcome",
-            "value": "Reign of Grelok (beta v.632)"
+    "templates": {
+        "welcome": {
+            "text": "Reign of Grelok (beta v.632)"
         },
-        {
-            "type": "menu",
-            "value": [
+        "menu": {
+            "items": [
                 {
                     "name": "town-look-around",
                     "label": "(Town) Look Around",
@@ -45,5 +42,5 @@
                 }
             ]
         }
-    ]
+    }
 }

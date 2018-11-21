@@ -4,15 +4,12 @@
         "location": "demo",
         "result": ""
     },
-    "templates": [
-
-        {
-            "type": "welcome",
-            "value": "This is welcome text for a note."
+    "templates": {
+        "welcome": {
+            "text": "This is welcome text for a note."
         },
-        {
-            "type": "note",
-            "value": "I am the body text of a note. How amazing is that!"
+        "note": {
+            "text": "I am the body text of a note. How amazing is that!"
         }
-    ]
+    }
 }

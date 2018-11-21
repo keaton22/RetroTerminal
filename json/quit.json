@@ -4,15 +4,12 @@
         "location": "home",
         "result": ""
     },
-    "templates": [
-
-        {
-            "type": "welcome",
-            "value": "Choose an action"
+    "templates": {
+        "welcome": {
+            "text": "Choose an action"
         },
-        {
-            "type": "menu",
-            "value": [
+        "menu": {
+            "items": [
                 {
                     "name": "lock",
                     "label": "Lock Terminal",
@@ -39,5 +36,5 @@
                 }
             ]
         }
-    ]
+    }
 }
