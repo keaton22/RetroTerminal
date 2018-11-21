@@ -187,7 +187,7 @@ function writeMenu(meta) {
 
         li.appendChild(text);                                                           // put text in <li> elements
         document.querySelector('.menu').appendChild(li);                        // put <li> elements in .menu
-        console.log('injected \"' + meta.value[i].label + '\" into menu');
+        console.log('injected "' + meta.value[i].label + '" into menu');
 
         if ((i + 1) % numItemsPerMenuSection === 0) {                                   // if it's the last menu item in the section
             numMenuSections++;                                                              // increment numMenuSections

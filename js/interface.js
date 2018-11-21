@@ -29,7 +29,7 @@ document.onkeydown = function (e) {
                     loadPage(document.querySelector('.note').getAttribute('data-source-location'), true);                           // go to source page
                 } else {                                                                                                        // if it's not the first section
                     currentNoteSection.classList.remove('active');                                                                  // remove '.active' class
-                    document.querySelector('.note [data-note-section=\"' + (currentNoteSectionIndex - 1) + '\"]').classList.add('active');// new '.active' section
+                    document.querySelector('.note [data-note-section="' + (currentNoteSectionIndex - 1) + '"]').classList.add('active');// new '.active' section
                 }
 
             } else if (document.querySelector('.menu .item[data-name=back]')) {                                          // else if menu template but not home page
@@ -56,7 +56,7 @@ document.onkeydown = function (e) {
                     loadPage(document.querySelector('.note').getAttribute('data-source-location'), true);                           // go to source page
                 } else {                                                                                                        // if it's not the final section
                     currentNoteSection.classList.remove('active');                                                                  // remove '.active' class
-                    document.querySelector('.note [data-note-section=\"' + (currentNoteSectionIndex + 1) + '\"]').classList.add('active'); // new '.active' section
+                    document.querySelector('.note [data-note-section="' + (currentNoteSectionIndex + 1) + '"]').classList.add('active'); // new '.active' section
                 }
             } else if (document.body.classList.contains('template-menu')) {
                 document.querySelector('.menu .item.selected').focus();
@@ -92,7 +92,7 @@ function moveCursor(direction) {
                     next.classList.add('selected');                 // select the new currently selected item
                     next.focus();                                   // put :focus on the new currently selected item
                 } else {                                        // if it is the last item in the section
-                    var nextMenuSectionItems = document.querySelectorAll('.menu .item[data-menu-section=\"' + (currentMenuSection + 1) + '\"]'); // items in next section
+                    var nextMenuSectionItems = document.querySelectorAll('.menu .item[data-menu-section="' + (currentMenuSection + 1) + '"]'); // items in next section
 
                     for (i = 0; i < currentMenuSectionItems.length; i++) {                                          // find all the items in the current section
                         currentMenuSectionItems[i].classList.remove('visible');                                         // and remove the .visible class from each
@@ -128,7 +128,7 @@ function moveCursor(direction) {
                     next.classList.add('selected');                 // select the new currently selected item
                     next.focus();                                   // put :focus on the new currently selected item
                 } else {                                        // if it is the last item in the section
-                    var nextMenuSectionItems = document.querySelectorAll('.menu .item[data-menu-section=\"' + (currentMenuSection - 1) + '\"]'); // items in next section
+                    var nextMenuSectionItems = document.querySelectorAll('.menu .item[data-menu-section="' + (currentMenuSection - 1) + '"]'); // items in next section
                     var nextMenuSectionLength = nextMenuSectionItems.length;
 
                     for (i = 0; i < currentMenuSectionItems.length; i++) {                                          // find all the items in the current section

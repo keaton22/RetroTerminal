@@ -21,7 +21,7 @@ function loadPage(page, popstateUsed) {
         history.pushState(page, null, 'index.html?page=' + page);      // create a new history state with pushState()
     }
 
-    console.groupCollapsed('go to \"' + page + '\" page');
+    console.groupCollapsed('go to "' + page + '" page');
 
     cleanPage();                                // clean the page
 
