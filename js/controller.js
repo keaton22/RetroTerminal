@@ -138,11 +138,7 @@ function writeMenu() {
 
                 var itemLocation = this.getAttribute('data-location');                          // track the item location
 
-                if (itemLocation === page.source.location) {                                    // if this menu item is a 'Back' button
-                    loadPage(this.getAttribute('data-location'), true);                             // load the page, but don't create a new history state
-                } else {                                                                        // if this menu item is not a 'Back' button
-                    loadPage(this.getAttribute('data-location'));                                   // set the location and create a new history state
-                }
+                loadPage(itemLocation);                                                         // load the page and create a new history state
             }
         });
 
