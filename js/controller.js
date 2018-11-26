@@ -144,7 +144,9 @@ function writeMenu() {
 
         items[i].action && li.addEventListener('keydown', function (e) {                // keydown event listener for action
             if (e.which === 13 || e.which === 32) {                                         // if enter key or spacebar is pressed
+
                 setResult(this.getAttribute('data-result'));                                    // set the result text
+
                 doAction(this);                                                                 // do the thing the menu item says it does
             }
         });
