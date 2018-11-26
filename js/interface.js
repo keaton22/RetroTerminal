@@ -20,25 +20,22 @@ document.onkeydown = function (e) {
         case 27:    // ESC key
         case 8:     // Backspace key
 
-            if (document.body.classList.contains('template-note')) {                                                     // if note template
-                var currentNoteSection = document.querySelector('.note .active');                                               // get the current section
-                var currentNoteSectionIndex = parseInt(currentNoteSection.getAttribute('data-note-section'));                   // get the current section's index
+            if (document.body.classList.contains('template-note')) {                                            // if note template
+                var currentNoteSection = document.querySelector('.note .active');                                   // get the current section
+                var currentNoteSectionIndex = parseInt(currentNoteSection.getAttribute('data-note-section'));       // get the current section's index
 
-                if (currentNoteSectionIndex === 1) {                                                                            // if it's is the first section
-                    setResult(document.querySelector('.note').getAttribute('data-source-result'));                                  // set result text
-                    loadPage(document.querySelector('.note').getAttribute('data-source-location'), true);                           // go to source page
-                } else {                                                                                                        // if it's not the first section
-                    currentNoteSection.classList.remove('active');                                                                  // remove '.active' class
-                    document.querySelector('.note [data-note-section="' + (currentNoteSectionIndex - 1) + '"]').classList.add('active');// new '.active' section
+                if (currentNoteSectionIndex === 1) {                                                                // if it's is the first section
+                    setResult(document.querySelector('.note').getAttribute('data-source-result'));                      // set result text
+                    loadPage(document.querySelector('.note').getAttribute('data-source-location'));                     // go to source page
+                } else {                                                                                            // if it's not the first section
+                    currentNoteSection.classList.remove('active');                                                      // remove '.active' class
+                    document.querySelector('.note [data-note-section="' + (currentNoteSectionIndex - 1) + '"]').classList.add('active'); // new '.active' section
                 }
-
-            } else if (document.querySelector('.menu .item[data-name=back]')) {                                          // else if menu template but not home page
-                setResult(document.querySelector('.menu .item[data-name=back]').getAttribute('data-result'));                   // set source-result
-                loadPage(document.querySelector('.menu .item[data-name=back]').getAttribute('data-location'), true);            // set source-location
-
-            } else {                                                                                                        // else
-                // this used to be 'e.preventDefault();' until it was added at the top of the 'document.onkeydown' event listener
-                history.back();                                                                                                 // and go back
+            } else if (document.querySelector('.menu .item[data-name=back]')) {                                 // else if menu template but not home page
+                setResult(document.querySelector('.menu .item[data-name=back]').getAttribute('data-result'));       // set source-result
+                loadPage(document.querySelector('.menu .item[data-name=back]').getAttribute('data-location'));      // set source-location
+            } else {                                                                                            // else home page
+                history.back();                                                                                     // go back to the previous
             }
             break;
 
@@ -53,7 +50,7 @@ document.onkeydown = function (e) {
 
                 if (currentNoteSectionIndex === lastSectionIndex) {                                                             // if it's the final section
                     setResult(document.querySelector('.note').getAttribute('data-source-result'));                                  // set result text
-                    loadPage(document.querySelector('.note').getAttribute('data-source-location'), true);                           // go to source page
+                    loadPage(document.querySelector('.note').getAttribute('data-source-location'));                                 // go to source page
                 } else {                                                                                                        // if it's not the final section
                     currentNoteSection.classList.remove('active');                                                                  // remove '.active' class
                     document.querySelector('.note [data-note-section="' + (currentNoteSectionIndex + 1) + '"]').classList.add('active'); // new '.active' section
