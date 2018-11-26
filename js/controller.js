@@ -22,21 +22,21 @@ function pageBuilder(response) {
 
     console.groupCollapsed('got data from ' + page.name + '.json');
 
-    if (!!page.templates.welcome) {                             // if the page has a welcome template
+    if (page.templates.welcome) {                             // if the page has a welcome template
         console.groupCollapsed('page has a welcome template');
         document.body.classList.add('template-welcome');            // add 'template-welcome' class to the <body>
         writeWelcome();                                             // build the welcome template
         console.groupEnd();
     }
 
-    if (!!page.templates.menu) {                                // if the page has a menu template
+    if (page.templates.menu) {                                // if the page has a menu template
         console.groupCollapsed('page has a menu template');
         document.body.classList.add('template-menu');               // add 'template-menu' class to the <body>
         writeMenu();                                                // build the menu template
         console.groupEnd();
     }
 
-    if (!!page.templates.note) {                                // if the page has a note template
+    if (page.templates.note) {                                // if the page has a note template
         console.groupCollapsed('page has a note template');
         document.body.classList.add('template-note');               // add 'template-note' class to the <body>
         writeNote();                                                // build the note template
