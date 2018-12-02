@@ -25,7 +25,7 @@ function loadPage(page, popstateUsed) {
 
     cleanPage();                                // clean the page
 
-    ajax(baseURL + '/json/' + page + '.json', 'GET', pageBuilder);      // ask the server for the new page's [JSON] data
+    ajax(baseURL + '/json/' + page + '.json', 'GET', prepareTheTemplates);      // ask the server for the new page's [JSON] data
 
     console.info('%cnew page loaded', 'background: rgba(0,0,255,0.2); color: rgba(0,0,255,1); padding: 2px;');
     console.groupEnd();

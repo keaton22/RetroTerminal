@@ -4,44 +4,66 @@ var numTemplatesPopulated = 0;      // keep a count of those templates so we kno
 var contentHeight = 312;            // the height of the interface
 var headerHeight = 54;              // the height of the header
 var footerHeight = 40;              // the height of the footer (this value is altered slightly)
-//var welcomeTemplateHeight;          // the height of the welcome template
-//var menuTemplateHeight;             // the height of the menu template
-var noteTemplateHeight;             // the height of the note template
-// var remainingHeight;                // equal to contentHeight - (headerHeight + welcomeTemplateHeight + footerHeight)
 var availableHeight;                // equal to contentHeight - (headerHeight + welcomeTemplateHeight + footerHeight)
 var menuItemHeight = 24;            // the height of each menu item
 var noteLineHeight = 12;            // the height of each note line
 
 
 
-// BUILD THE PAGE
+// PREPARE THE TEMPLATES
 
-function pageBuilder(response) {
+function prepareTheTemplates(response) {
     page = JSON.parse(response.responseText);                       // get the page data [JSON]
+
+    if (page.source.location === '') {                                          // if the page has no source location
+        console.error('the "' + page.name + '" page has no source location')        // throw an error
+    }
+
     numRequiredTemplates = Object.keys(page.templates).length;      // find all property names within an object, make an array of them, then count them
 
     console.groupCollapsed('got data from ' + page.name + '.json');
 
-    if (page.templates.welcome) {                             // if the page has a welcome template
+    if (page.templates.welcome) {                                   // if the page has a welcome template
         console.groupCollapsed('page has a welcome template');
-        document.body.classList.add('template-welcome');            // add 'template-welcome' class to the <body>
-        writeWelcome();                                             // build the welcome template
-        console.groupEnd();
+        document.body.classList.add('template-welcome');                // add 'template-welcome' class to the <body>
+        prepareWelcome();                                               // prepare the welcome template
     }
 
-    if (page.templates.menu) {                                // if the page has a menu template
+    if (page.templates.menu) {                                      // if the page has a menu template
         console.groupCollapsed('page has a menu template');
-        document.body.classList.add('template-menu');               // add 'template-menu' class to the <body>
-        writeMenu();                                                // build the menu template
-        console.groupEnd();
+        document.body.classList.add('template-menu');                   // add 'template-menu' class to the <body>
+        writeMenu();                                                    // prepare the menu template
     }
 
-    if (page.templates.note) {                                // if the page has a note template
+    if (page.templates.note) {                                      // if the page has a note template
         console.groupCollapsed('page has a note template');
-        document.body.classList.add('template-note');               // add 'template-note' class to the <body>
-        writeNote();                                                // build the note template
-        console.groupEnd();
+        document.body.classList.add('template-note');                   // add 'template-note' class to the <body>
+        writeNote();                                                    // prepare the note template
     }
+}
+
+
+
+// PREPARE WELCOME TEMPLATE
+
+function prepareWelcome() {
+    var welcome = page.templates.welcome;
+    var charsPerLine = 38;                                                          // how many characters can fit on one line
+    var lineHeight = 12;                                                            // how tall is one line
+    var chinHeight = 7;                                                             // how tall is the bottom padding plus the bottom border
+
+    welcome.formattedText = wordWrap(welcome.text, charsPerLine)                    // format the welcome text as an array of lines welcome text
+    welcome.height = (welcome.formattedText.length * lineHeight) + chinHeight;      // calculate the height of the template
+
+    document.querySelector('.welcome').style.height = welcome.height + 'px';        // set the height of the template
+
+    page.templates.welcome = welcome;                                               // save the new welcome properties to the 'page' variable
+
+    console.info('prepared the welcome template');
+
+    console.groupEnd();
+
+    templatePopulated();                                                            // check and see if this is the last template
 }
 
 
@@ -49,28 +71,38 @@ function pageBuilder(response) {
 // WRITE WELCOME TEMPLATE
 
 function writeWelcome() {
-    var welcome = page.templates.welcome;
+    var welcome = page.templates.welcome;                                   // the welcome template
+    var formattedText = welcome.formattedText;                              // an array of each line of text in the welcome template
+    var welcomeElem = document.querySelector('.welcome');                   // the element receiving the welcome text
+    var i = 0;                                                              // the iterator for the recursive loop below
 
-    document.querySelector('.welcome').innerHTML = welcome.text;
+    welcomeElem.innerHTML = '';                                             // clear out the existing welcome text
+    document.querySelector('.welcome').style.borderColor = 'transparent';   // make the bottom border transparent
 
-    page.templates.welcome.height = document.querySelector('.welcome').offsetHeight;
+    function writeLine(array, elem, i) {                                    // a recursive function to write each line of the welcome text
+        if (i < array.length) {                                                 // iterate over each text line
+            typewriterEffect(array[i], elem, page.name, function () {               // write the text, then at the end of each line...
+                elem.innerHTML += '<br/>';                                              // append a line break
+                i++;                                                                    // increment the iterator
+                writeLine(array, elem, i);                                              // repeat the recursive function
+            });
+        } else {                                                                // after all lines have been written...
+            document.querySelector('.welcome').style.borderColor = 'currentColor';  // apply the currentColor to the welcome template's bottom border
+        }
+    }
 
-    console.log('injected data into welcome');
+    writeLine(formattedText, welcomeElem, i);                               // start the recursive function
 
-    templatePopulated();
+    console.info('finished writing the welcome template');
 }
 
 
 
-// WRITE WELCOME MENU
+// WRITE MENU TEMPLATE
 
 function writeMenu() {
     var menu = page.templates.menu;
     var items = menu.items;
-
-    if (page.source.location === '') {                                          // if there's no source location
-        console.error('the "' + page.name + '" page has no source location')        // throw an error
-    }
 
     menu.height = document.querySelector('.menu').offsetHeight;                     // the height of full menu (inclusive of the heights of all items)
     availableHeight = calculateAvailableHeight();                                   // the available space for the menu to show in
@@ -153,7 +185,7 @@ function writeMenu() {
 
         li.appendChild(text);                                                           // put text in <li> elements
         document.querySelector('.menu').appendChild(li);                                // put <li> elements in .menu
-        console.log('injected "' + items[i].label + '" into menu');
+        console.info('injected "' + items[i].label + '" into menu');
 
         if ((i + 1) % numItemsPerMenuSection === 0) {                                   // if it's the last menu item in the section
             numMenuSections++;                                                              // increment numMenuSections
@@ -165,6 +197,8 @@ function writeMenu() {
     document.querySelector('.menu .item').classList.add('selected');                                // add .selected to the first menu item
     document.querySelector('.menu .item').focus();                                                  // put :focus on the first menu item
 
+    console.groupEnd();
+
     templatePopulated();
 }
 
@@ -174,10 +208,6 @@ function writeMenu() {
 
 function writeNote() {
     var note = page.templates.note;
-
-    if (page.source.location === '') {                                          // if there's no source location
-        console.error('the "' + page.name + '" page has no source location')        // throw an error
-    }
 
     note.height = document.querySelector('.note').offsetHeight;                     // the height of full note (inclusive of heights of all sections)
     availableHeight = calculateAvailableHeight();                                   // the available space for the note to show in
@@ -213,7 +243,9 @@ function writeNote() {
     document.querySelector('.note').setAttribute('data-source-location', page.source.location); // set source location
     document.querySelector('.note').setAttribute('data-source-result', page.source.result);     // set source result text
 
-    console.log('injected data into note');
+    console.info('injected data into note');
+
+    console.groupEnd();
 
     templatePopulated();
 }
@@ -227,10 +259,26 @@ function templatePopulated() {
 
     if (numTemplatesPopulated === numRequiredTemplates) {    // once all page templates are populated
         numTemplatesPopulated = 0;                              // reset the count for populated page templates
+
+        pageLoaded();                                           // initialize the page
+
+        console.groupCollapsed('injecting data into page templates...');
+
+        if (page.templates.welcome) {                           // if the page has a welcome template
+            writeWelcome();                                         // write it
+        }
+
+        if (page.templates.menu) {                              // if the page has a menu template
+
+        }
+
+        if (page.templates.note) {                              // if the page has a note template
+
+        }
+
         console.groupEnd();
-        console.info('all data loaded successfully!');
+        console.info('page loaded successfully!');
         console.groupEnd();
-        pageLoaded();                                           // do stuff
     }
 }
 
@@ -274,16 +322,47 @@ function calculateAvailableHeight() {
 
 // WORD WRAP HELPER FUNCTION
 
-function wordWrap(str, width, brk, cut) {              // written by ARTsinn - http://jsfiddle.net/ARTsinn/sXKzZ/
-    var regex = '\\n|.{1,' + width + '}(\\s|$)' + (cut ? '|.{' + width + '}|.+$' : '|\\S+?(\\s|$)');
+function wordWrap(string, charsPerLine, lineBreakCharacter, breakWord) {        // see https://j11y.io/snippets/wordwrap-for-javascript/
+    var lineBreakCharacter = lineBreakCharacter || null;                            // what to insert at the end of a line (by default, insert nothing)
+    var breakWord = breakWord || false;                                             // whether or not to break long words (by default, don't)
 
-    if (!str) {
-        return str;
+    if (!string) {                                                                  // if the string is empty
+        return string;                                                                  // return an empty string
     }
 
-    if (!brk) {
-        return str.match(RegExp(regex, 'g'));
-    } else {
-        return str.match(RegExp(regex, 'g')).join(brk);
+    var regex = '\\n|.{1,' + charsPerLine + '}(\\s|$)' + (breakWord ? '|.{' + charsPerLine + '}|.+$' : '|\\S+?(\\s|$)');      // *mind blown*
+
+    if (!lineBreakCharacter) {                                                      // if we don't want to use a line break character
+        return string.match(RegExp(regex, 'g'));                                        // return an array comprised of each line
+    } else {                                                                        // if we do want to use a line break character
+        return string.match(RegExp(regex, 'g')).join(lineBreakCharacter);               // return a string with line break characters
     }
+}
+
+
+
+// TYPEWRITER EFFECT
+
+function typewriterEffect(string, elem, currentPage, callback, delay) {
+    callback = callback || undefined;
+    delay = delay || 10;
+    var i = 0;
+
+    function writeCharacter(string, elem, callback, delay, i) {
+        if (currentPage === page.name) {
+            if (i < string.length) {
+                elem.innerHTML += string.charAt(i);
+                i++;
+                setTimeout(function () {
+                    writeCharacter(string, elem, callback, delay, i);
+                }, delay);
+            } else {
+                if (typeof(callback) !== 'undefined') {
+                    callback();
+                }
+            }
+        }
+    }
+
+    writeCharacter(string, elem, callback, delay, i);
 }
