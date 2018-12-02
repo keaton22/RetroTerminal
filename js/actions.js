@@ -95,6 +95,7 @@ function clearResult() {
 
 function drawFavicon() {                                        // draw (or redraw) the page's favicon
     var faviconBlinkToggler = true;
+    var color = getColor();
 
     clearInterval(drawFaviconInterval);
 
@@ -104,12 +105,12 @@ function drawFavicon() {                                        // draw (or redr
         canvas.width = 16;                                              // set the pixel width of the canvas
         canvas.height = 16;                                             // set the pixel height of the canvas
 
-        ctx.fillStyle = getColor().value;                               // set the fill color to the theme color
+        ctx.fillStyle = color.value;                                    // set the fill color to the theme color
         ctx.fillRect(0, 0, 15, 15);                                     // draw a full-size square in the favicon using the theme color
         ctx.fillStyle = 'rgba(0,0,0,.8)';                               // set the fill color to transparent black
         ctx.fillRect(0, 0, 15, 15);                                     // draw a full-size square in the favicon using the transparent black
 
-        ctx.strokeStyle = getColor().value;                             // set the fill color to the theme color
+        ctx.strokeStyle = color.value;                                  // set the fill color to the theme color
         ctx.beginPath();                                                // initialize the path for the angle bracket shape
         ctx.moveTo(2, 8);                                               // starting poing for the angle bracket shape
         ctx.lineTo(4, 10);                                              // connect starting point and middle point
@@ -117,7 +118,7 @@ function drawFavicon() {                                        // draw (or redr
         ctx.stroke();                                                   // apply stroke color to the finished angle bracket shape
 
         if (faviconBlinkToggler) {                                      // the "on" state for the blink
-            ctx.fillStyle = getColor().value;                               // set the fill color to the theme color
+            ctx.fillStyle = color.value;                                // set the fill color to the theme color
         } else {                                                        // the "off" state for the blink
             ctx.fillStyle = 'transparent';                                  // set the fill color to transparent
         }
