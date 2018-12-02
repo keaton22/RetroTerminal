@@ -42,21 +42,22 @@ document.onkeydown = function (e) {
         case 13:    // Enter key
         case 32:    // Spacebar
 
-            if (document.body.classList.contains('template-note')) {                                                         // if note template
-                var noteTemplate = document.querySelector('.note');                                                             // get the note template
-                var currentNoteSection = document.querySelector('.note .active');                                               // get the current section
-                var lastSectionIndex = parseInt(noteTemplate.getAttribute('data-note-total-sections'));                         // get the final section's index
-                var currentNoteSectionIndex = parseInt(currentNoteSection.getAttribute('data-note-section'));                   // get the current section's index
+            if (document.body.classList.contains('template-note')) {                                        // if note template
+                var noteTemplate = document.querySelector('.note');                                             // get the note template
+                var currentNoteSection = document.querySelector('.note .active');                               // get the current section
+                var lastSectionIndex = parseInt(noteTemplate.getAttribute('data-note-total-sections'));         // get the final section's index
+                var currentNoteSectionIndex = parseInt(currentNoteSection.getAttribute('data-note-section'));   // get the current section's index
 
-                if (currentNoteSectionIndex === lastSectionIndex) {                                                             // if it's the final section
-                    setResult(document.querySelector('.note').getAttribute('data-source-result'));                                  // set result text
-                    loadPage(document.querySelector('.note').getAttribute('data-source-location'));                                 // go to source page
-                } else {                                                                                                        // if it's not the final section
-                    currentNoteSection.classList.remove('active');                                                                  // remove '.active' class
-                    document.querySelector('.note [data-note-section="' + (currentNoteSectionIndex + 1) + '"]').classList.add('active'); // new '.active' section
+                if (currentNoteSectionIndex === lastSectionIndex) {                                             // if it's the final section
+                    setResult(document.querySelector('.note').getAttribute('data-source-result'));                  // set result text
+                    loadPage(document.querySelector('.note').getAttribute('data-source-location'));                 // go to source page
+                } else {                                                                                        // if it's not the final section
+                    currentNoteSection.classList.remove('active');                                                  // remove '.active' class
+                    var selector = '.note [data-note-section="' + (currentNoteSectionIndex + 1) + '"]';             // build the css selector
+                    document.querySelector(selector).classList.add('active');                                       // assign new '.active' section
                 }
-            } else if (document.body.classList.contains('template-menu')) {
-                document.querySelector('.menu .item.selected').focus();
+            } else if (document.body.classList.contains('template-menu')) {                                 // if menu template
+                document.querySelector('.menu .item.selected').focus();                                         // focus the '.selected' menu item
             }
             break;
 
